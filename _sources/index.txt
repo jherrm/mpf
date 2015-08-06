@@ -3,12 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Mission Pinball Framework's module reference!
-=======================================================
+Welcome to Mission Pinball Framework's API reference!
+=====================================================
 
-This is the module reference for the Mission Pinball Framework, a Python-based software framework for controlling real
-pinball machines via P-ROC or FAST Pinball hardware. The instructions and documentation are available at
-https://missionpinball.com/docs
+This is the module API for the Mission Pinball Framework, a Python-based
+software framework for controlling real pinball machines via Multimorphic P-ROC/
+P3-ROC or FAST Pinball hardware. Full instructions and end-user documentation
+are available at https://missionpinball.com/docs.
+
+The site you're on now is the programmer's reference, for people who want to
+write Python code to interact with MPF directly rather than (or in addition to)
+using MPF's configuration files.
 
 Contents:
 
@@ -16,8 +21,6 @@ Contents:
    :maxdepth: 3
 
    mpf
-   modules
-
 
 Indices and tables
 ==================
