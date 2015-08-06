@@ -15,7 +15,8 @@ Contents:
 .. toctree::
    :maxdepth: 3
 
-    mpf
+   mpf
+   modules
 
 
 Indices and tables
