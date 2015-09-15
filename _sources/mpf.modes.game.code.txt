@@ -1,0 +1,17 @@
+mpf.modes.game.code package
+===========================
+
+Submodules
+----------
+
+.. toctree::
+
+   mpf.modes.game.code.game
+
+Module contents
+---------------
+
+.. automodule:: mpf.modes.game.code
+    :members:
+    :undoc-members:
+    :show-inheritance:

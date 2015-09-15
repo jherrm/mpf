@@ -1,0 +1,7 @@
+mpf.devices.shot module
+=======================
+
+.. automodule:: mpf.devices.shot
+    :members:
+    :undoc-members:
+    :show-inheritance:

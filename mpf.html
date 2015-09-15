@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf package &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
+    <title>mpf package &mdash; Mission Pinball Framework v0.20.0 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.20.0-dev69',
+        VERSION:     '0.20.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0 API Documentation" href="index.html" />
     <link rel="next" title="mpf.devices package" href="mpf.devices.html" />
     <link rel="prev" title="Welcome to Mission Pinball Framework’s API reference!" href="index.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="index.html" title="Welcome to Mission Pinball Framework’s API reference!"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li> 
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -62,6 +62,8 @@
 <li class="toctree-l2"><a class="reference internal" href="mpf.devices.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.autofire.html">mpf.devices.autofire module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.ball_device.html">mpf.devices.ball_device module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.devices.ball_lock.html">mpf.devices.ball_lock module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.devices.ball_save.html">mpf.devices.ball_save module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.diverter.html">mpf.devices.diverter module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.driver.html">mpf.devices.driver module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.drop_target.html">mpf.devices.drop_target module</a></li>
@@ -70,37 +72,31 @@
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.gi.html">mpf.devices.gi module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.led.html">mpf.devices.led module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.matrix_light.html">mpf.devices.matrix_light module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.devices.multiball.html">mpf.devices.multiball module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.new_device_template.html">mpf.devices.new_device_template module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.playfield.html">mpf.devices.playfield module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.playfield_transfer.html">mpf.devices.playfield_transfer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.score_reel.html">mpf.devices.score_reel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.devices.shot.html">mpf.devices.shot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.devices.shot_group.html">mpf.devices.shot_group module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.devices.switch.html">mpf.devices.switch module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mpf.devices.target.html">mpf.devices.target module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mpf.devices.html#module-mpf.devices">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="mpf.game.html">mpf.game package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mpf.game.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mpf.game.attract.html">mpf.game.attract module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mpf.game.game.html">mpf.game.game module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mpf.game.player.html">mpf.game.player module</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mpf.game.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpf.devices.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mpf.media_controller.html">mpf.media_controller package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mpf.media_controller.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.html">mpf.media_controller.core package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mpf.media_controller.core.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.bcp_server.html">mpf.media_controller.core.bcp_server module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.display.html">mpf.media_controller.core.display module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.font_manager.html">mpf.media_controller.core.font_manager module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.keyboard.html">mpf.media_controller.core.keyboard module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.language.html">mpf.media_controller.core.language module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.media_controller.html">mpf.media_controller.core.media_controller module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.modes.html">mpf.media_controller.core.modes module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.mode.html">mpf.media_controller.core.mode module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.mode_controller.html">mpf.media_controller.core.mode_controller module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.show_controller.html">mpf.media_controller.core.show_controller module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.slide.html">mpf.media_controller.core.slide module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mpf.media_controller.core.slide_builder.html">mpf.media_controller.core.slide_builder module</a></li>
@@ -152,11 +148,44 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mpf.media_controller.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.version.html">mpf.media_controller.version module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpf.media_controller.html#module-mpf.media_controller">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mpf.media_controller.html#module-mpf.media_controller">Module contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpf.modes.html">mpf.modes package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mpf.modes.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mpf.modes.attract.html">mpf.modes.attract package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mpf.modes.attract.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mpf.modes.attract.code.html">mpf.modes.attract.code package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="mpf.modes.attract.code.html#submodules">Submodules</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="mpf.modes.attract.code.attract.html">mpf.modes.attract.code.attract module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="mpf.modes.attract.code.html#module-mpf.modes.attract.code">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mpf.modes.attract.html#module-mpf.modes.attract">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.modes.game.html">mpf.modes.game package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mpf.modes.game.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mpf.modes.game.code.html">mpf.modes.game.code package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="mpf.modes.game.code.html#submodules">Submodules</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="mpf.modes.game.code.game.html">mpf.modes.game.code.game module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="mpf.modes.game.code.html#module-mpf.modes.game.code">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="mpf.modes.game.html#module-mpf.modes.game">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mpf.modes.html#module-mpf.modes">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mpf.platform.html">mpf.platform package</a><ul>
@@ -183,7 +212,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mpf.plugins.switch_player.html">mpf.plugins.switch_player module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mpf.plugins.html#module-mpf.plugins">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpf.plugins.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mpf.system.html">mpf.system package</a><ul>
@@ -192,19 +221,20 @@
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.ball_controller.html">mpf.system.ball_controller module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.bcp.html">mpf.system.bcp module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.config.html">mpf.system.config module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mpf.system.devices.html">mpf.system.devices module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.system.device.html">mpf.system.device module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.system.device_manager.html">mpf.system.device_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.events.html">mpf.system.events module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.light_controller.html">mpf.system.light_controller module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.logic_blocks.html">mpf.system.logic_blocks module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.machine.html">mpf.system.machine module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mpf.system.machine_mode.html">mpf.system.machine_mode module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mpf.system.modes.html">mpf.system.modes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.system.mode.html">mpf.system.mode module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.system.mode_controller.html">mpf.system.mode_controller module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.platform.html">mpf.system.platform module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.system.player.html">mpf.system.player module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.scoring.html">mpf.system.scoring module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.scriptlet.html">mpf.system.scriptlet module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mpf.system.shots.html">mpf.system.shots module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.system.shot_profile_manager.html">mpf.system.shot_profile_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.switch_controller.html">mpf.system.switch_controller module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mpf.system.target_controller.html">mpf.system.target_controller module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.tasks.html">mpf.system.tasks module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.system.timing.html">mpf.system.timing module</a></li>
 </ul>
@@ -278,7 +308,7 @@
         <li class="right" >
           <a href="index.html" title="Welcome to Mission Pinball Framework’s API reference!"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li> 
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

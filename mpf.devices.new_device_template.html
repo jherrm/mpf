@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.devices.new_device_template module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
+    <title>mpf.devices.new_device_template module &mdash; Mission Pinball Framework v0.20.0 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.20.0-dev69',
+        VERSION:     '0.20.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,10 +23,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0 API Documentation" href="index.html" />
     <link rel="up" title="mpf.devices package" href="mpf.devices.html" />
     <link rel="next" title="mpf.devices.playfield module" href="mpf.devices.playfield.html" />
-    <link rel="prev" title="mpf.devices.matrix_light module" href="mpf.devices.matrix_light.html" /> 
+    <link rel="prev" title="mpf.devices.multiball module" href="mpf.devices.multiball.html" /> 
   </head>
   <body>
     <div class="related">
@@ -42,9 +42,9 @@
           <a href="mpf.devices.playfield.html" title="mpf.devices.playfield module"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="mpf.devices.matrix_light.html" title="mpf.devices.matrix_light module"
+          <a href="mpf.devices.multiball.html" title="mpf.devices.multiball module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.devices.html" accesskey="U">mpf.devices package</a> &raquo;</li> 
       </ul>
@@ -61,11 +61,38 @@
 <dl class="class">
 <dt id="mpf.devices.new_device_template.YourNewDevice">
 <em class="property">class </em><tt class="descclassname">mpf.devices.new_device_template.</tt><tt class="descname">YourNewDevice</tt><big>(</big><em>machine</em>, <em>name</em>, <em>config</em>, <em>collection=None</em>, <em>validate=True</em><big>)</big></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></p>
+<dd><p>Bases: <a class="reference internal" href="mpf.system.device.html#mpf.system.device.Device" title="mpf.system.device.Device"><tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></a></p>
 <dl class="attribute">
 <dt id="mpf.devices.new_device_template.YourNewDevice.class_label">
 <tt class="descname">class_label</tt><em class="property"> = 'your_new_device'</em></dt>
-<dd></dd></dl>
+<dd><p>The two class attributes above control how devices based on this class
+are configured and how they&#8217;re presented to the MPF.</p>
+<p><cite>config_section</cite> is the name of the section in the machine configuration
+files that contains settings for this type of device. The game programmer
+would then create subsections for each device of this type, with individual
+settings under each one.</p>
+<p>For example, in the machine configuration files:</p>
+<dl class="docutils">
+<dt>YourNewDevices:</dt>
+<dd><dl class="first last docutils">
+<dt>device1:</dt>
+<dd>setting1: foo
+setting2: bar
+tags: tag2, tag3
+label: A plain english description of this device</dd>
+<dt>device2:</dt>
+<dd>setting1: foo
+setting2: bar
+tags: tag1, tag2
+label: A plain english description of this device</dd>
+</dl>
+</dd>
+</dl>
+<p><cite>collection</cite> is the DeviceCollection instance that will be created to hold
+all the devices of this new type. For example, if collection is
+&#8216;yournewdevice&#8217;, a collection will be created which is accessible via
+self.machine.yournewdevices.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="mpf.devices.new_device_template.YourNewDevice.collection">
@@ -103,8 +130,8 @@ don&#8217;t need it.)</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="mpf.devices.matrix_light.html"
-                        title="previous chapter">mpf.devices.matrix_light module</a></p>
+  <p class="topless"><a href="mpf.devices.multiball.html"
+                        title="previous chapter">mpf.devices.multiball module</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="mpf.devices.playfield.html"
                         title="next chapter">mpf.devices.playfield module</a></p>
@@ -143,9 +170,9 @@ don&#8217;t need it.)</p>
           <a href="mpf.devices.playfield.html" title="mpf.devices.playfield module"
              >next</a> |</li>
         <li class="right" >
-          <a href="mpf.devices.matrix_light.html" title="mpf.devices.matrix_light module"
+          <a href="mpf.devices.multiball.html" title="mpf.devices.multiball module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.devices.html" >mpf.devices package</a> &raquo;</li> 
       </ul>

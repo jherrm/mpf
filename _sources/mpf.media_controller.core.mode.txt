@@ -1,0 +1,7 @@
+mpf.media_controller.core.mode module
+=====================================
+
+.. automodule:: mpf.media_controller.core.mode
+    :members:
+    :undoc-members:
+    :show-inheritance:

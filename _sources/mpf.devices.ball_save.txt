@@ -1,0 +1,7 @@
+mpf.devices.ball_save module
+============================
+
+.. automodule:: mpf.devices.ball_save
+    :members:
+    :undoc-members:
+    :show-inheritance:

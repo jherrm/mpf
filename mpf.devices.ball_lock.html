@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mpf.devices.ball_lock module &mdash; Mission Pinball Framework v0.20.0 API Documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.20.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Mission Pinball Framework v0.20.0 API Documentation" href="index.html" />
+    <link rel="up" title="mpf.devices package" href="mpf.devices.html" />
+    <link rel="next" title="mpf.devices.ball_save module" href="mpf.devices.ball_save.html" />
+    <link rel="prev" title="mpf.devices.ball_device module" href="mpf.devices.ball_device.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.ball_save.html" title="mpf.devices.ball_save module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.ball_device.html" title="mpf.devices.ball_device module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
+          <li><a href="mpf.html" >mpf package</a> &raquo;</li>
+          <li><a href="mpf.devices.html" accesskey="U">mpf.devices package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-mpf.devices.ball_lock">
+<span id="mpf-devices-ball-lock-module"></span><h1>mpf.devices.ball_lock module</h1>
+<p>Contains the BallLock device class.</p>
+<dl class="class">
+<dt id="mpf.devices.ball_lock.BallLock">
+<em class="property">class </em><tt class="descclassname">mpf.devices.ball_lock.</tt><tt class="descname">BallLock</tt><big>(</big><em>machine</em>, <em>name</em>, <em>config</em>, <em>collection=None</em>, <em>validate=True</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="mpf.system.device.html#mpf.system.device.Device" title="mpf.system.device.Device"><tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></a></p>
+<dl class="attribute">
+<dt id="mpf.devices.ball_lock.BallLock.class_label">
+<tt class="descname">class_label</tt><em class="property"> = 'ball_lock'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.ball_lock.BallLock.collection">
+<tt class="descname">collection</tt><em class="property"> = 'ball_locks'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.ball_lock.BallLock.config_section">
+<tt class="descname">config_section</tt><em class="property"> = 'ball_locks'</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.ball_lock.BallLock.disable">
+<tt class="descname">disable</tt><big>(</big><em>**kwargs</em><big>)</big></dt>
+<dd><p>Disables the lock. If the lock is not enabled, no balls will be
+locked.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.ball_lock.BallLock.enable">
+<tt class="descname">enable</tt><big>(</big><em>**kwargs</em><big>)</big></dt>
+<dd><p>Enables the lock. If the lock is not enabled, no balls will be
+locked.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.ball_lock.BallLock.is_full">
+<tt class="descname">is_full</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.ball_lock.BallLock.release_all_balls">
+<tt class="descname">release_all_balls</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.ball_lock.BallLock.release_balls">
+<tt class="descname">release_balls</tt><big>(</big><em>balls_to_release</em><big>)</big></dt>
+<dd><p>Release all balls and return the actual amount of balls released.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.ball_lock.BallLock.release_one">
+<tt class="descname">release_one</tt><big>(</big><em>**kwargs</em><big>)</big></dt>
+<dd><p>Releases one ball</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.ball_lock.BallLock.remaining_space_in_lock">
+<tt class="descname">remaining_space_in_lock</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.ball_lock.BallLock.request_new_balls">
+<tt class="descname">request_new_balls</tt><big>(</big><em>balls</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.ball_lock.BallLock.reset">
+<tt class="descname">reset</tt><big>(</big><em>**kwargs</em><big>)</big></dt>
+<dd><p>Resets the lock. Will release locked balls. Device will status will
+stay the same (enabled/disabled)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mpf.devices.ball_device.html"
+                        title="previous chapter">mpf.devices.ball_device module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mpf.devices.ball_save.html"
+                        title="next chapter">mpf.devices.ball_save module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/mpf.devices.ball_lock.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.ball_save.html" title="mpf.devices.ball_save module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.ball_device.html" title="mpf.devices.ball_device module"
+             >previous</a> |</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
+          <li><a href="mpf.html" >mpf package</a> &raquo;</li>
+          <li><a href="mpf.devices.html" >mpf.devices package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brian Madden, Gabe Knuth.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

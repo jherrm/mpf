@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.media_controller.core.slide module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
+    <title>mpf.media_controller.core.slide module &mdash; Mission Pinball Framework v0.20.0 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.20.0-dev69',
+        VERSION:     '0.20.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0 API Documentation" href="index.html" />
     <link rel="up" title="mpf.media_controller.core package" href="mpf.media_controller.core.html" />
     <link rel="next" title="mpf.media_controller.core.slide_builder module" href="mpf.media_controller.core.slide_builder.html" />
     <link rel="prev" title="mpf.media_controller.core.show_controller module" href="mpf.media_controller.core.show_controller.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="mpf.media_controller.core.show_controller.html" title="mpf.media_controller.core.show_controller module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.media_controller.html" >mpf.media_controller package</a> &raquo;</li>
           <li><a href="mpf.media_controller.core.html" accesskey="U">mpf.media_controller.core package</a> &raquo;</li> 
@@ -277,10 +277,24 @@ that should be included in the surface.</li>
 <p>Returns: A Pygame surface.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="mpf.media_controller.core.slide.Slide.pending_elements">
+<tt class="descname">pending_elements</tt><em class="property"> = None</em></dt>
+<dd><p>Elements which have related assets that are still loading in a
+background thread.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="mpf.media_controller.core.slide.Slide.ready">
 <tt class="descname">ready</tt><big>(</big><big>)</big></dt>
 <dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.media_controller.core.slide.Slide.ready_callbacks">
+<tt class="descname">ready_callbacks</tt><em class="property"> = None</em></dt>
+<dd><p>List of callback/kwarg tuples which will be called when all the
+elements of this slide are ready to be shown.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="mpf.media_controller.core.slide.Slide.refresh">
@@ -406,7 +420,7 @@ and blits the results if there&#8217;s an update.</p>
         <li class="right" >
           <a href="mpf.media_controller.core.show_controller.html" title="mpf.media_controller.core.show_controller module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.media_controller.html" >mpf.media_controller package</a> &raquo;</li>
           <li><a href="mpf.media_controller.core.html" >mpf.media_controller.core package</a> &raquo;</li> 

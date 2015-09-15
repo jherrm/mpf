@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.media_controller package &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
+    <title>mpf.media_controller package &mdash; Mission Pinball Framework v0.20.0 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.20.0-dev69',
+        VERSION:     '0.20.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,10 +23,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0 API Documentation" href="index.html" />
     <link rel="up" title="mpf package" href="mpf.html" />
     <link rel="next" title="mpf.media_controller.core package" href="mpf.media_controller.core.html" />
-    <link rel="prev" title="mpf.game.player module" href="mpf.game.player.html" /> 
+    <link rel="prev" title="mpf.devices.switch module" href="mpf.devices.switch.html" /> 
   </head>
   <body>
     <div class="related">
@@ -42,9 +42,9 @@
           <a href="mpf.media_controller.core.html" title="mpf.media_controller.core package"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="mpf.game.player.html" title="mpf.game.player module"
+          <a href="mpf.devices.switch.html" title="mpf.devices.switch module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" accesskey="U">mpf package</a> &raquo;</li> 
       </ul>
     </div>  
@@ -62,12 +62,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mpf.media_controller.core.html">mpf.media_controller.core package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mpf.media_controller.core.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.bcp_server.html">mpf.media_controller.core.bcp_server module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.display.html">mpf.media_controller.core.display module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.font_manager.html">mpf.media_controller.core.font_manager module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.keyboard.html">mpf.media_controller.core.keyboard module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.language.html">mpf.media_controller.core.language module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.media_controller.html">mpf.media_controller.core.media_controller module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.modes.html">mpf.media_controller.core.modes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.mode.html">mpf.media_controller.core.mode module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.mode_controller.html">mpf.media_controller.core.mode_controller module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.show_controller.html">mpf.media_controller.core.show_controller module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.slide.html">mpf.media_controller.core.slide module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpf.media_controller.core.slide_builder.html">mpf.media_controller.core.slide_builder module</a></li>
@@ -120,14 +122,6 @@
 </ul>
 </div>
 </div>
-<div class="section" id="submodules">
-<h2>Submodules</h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="mpf.media_controller.version.html">mpf.media_controller.version module</a></li>
-</ul>
-</div>
-</div>
 <div class="section" id="module-mpf.media_controller">
 <span id="module-contents"></span><h2>Module contents</h2>
 </div>
@@ -143,15 +137,14 @@
   <ul>
 <li><a class="reference internal" href="#">mpf.media_controller package</a><ul>
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-mpf.media_controller">Module contents</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="mpf.game.player.html"
-                        title="previous chapter">mpf.game.player module</a></p>
+  <p class="topless"><a href="mpf.devices.switch.html"
+                        title="previous chapter">mpf.devices.switch module</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="mpf.media_controller.core.html"
                         title="next chapter">mpf.media_controller.core package</a></p>
@@ -190,9 +183,9 @@
           <a href="mpf.media_controller.core.html" title="mpf.media_controller.core package"
              >next</a> |</li>
         <li class="right" >
-          <a href="mpf.game.player.html" title="mpf.game.player module"
+          <a href="mpf.devices.switch.html" title="mpf.devices.switch module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li> 
       </ul>
     </div>

@@ -1,0 +1,7 @@
+mpf.modes.attract.code.attract module
+=====================================
+
+.. automodule:: mpf.modes.attract.code.attract
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+mpf.system.player module
+========================
+
+.. automodule:: mpf.system.player
+    :members:
+    :undoc-members:
+    :show-inheritance:

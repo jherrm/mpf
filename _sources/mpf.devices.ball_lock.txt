@@ -1,0 +1,7 @@
+mpf.devices.ball_lock module
+============================
+
+.. automodule:: mpf.devices.ball_lock
+    :members:
+    :undoc-members:
+    :show-inheritance:

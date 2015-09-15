@@ -1,0 +1,7 @@
+mpf.system.device module
+========================
+
+.. automodule:: mpf.system.device
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -12,13 +12,6 @@ Subpackages
     mpf.media_controller.elements
     mpf.media_controller.transitions
 
-Submodules
-----------
-
-.. toctree::
-
-   mpf.media_controller.version
-
 Module contents
 ---------------
 

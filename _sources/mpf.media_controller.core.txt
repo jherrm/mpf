@@ -6,12 +6,14 @@ Submodules
 
 .. toctree::
 
+   mpf.media_controller.core.bcp_server
    mpf.media_controller.core.display
    mpf.media_controller.core.font_manager
    mpf.media_controller.core.keyboard
    mpf.media_controller.core.language
    mpf.media_controller.core.media_controller
-   mpf.media_controller.core.modes
+   mpf.media_controller.core.mode
+   mpf.media_controller.core.mode_controller
    mpf.media_controller.core.show_controller
    mpf.media_controller.core.slide
    mpf.media_controller.core.slide_builder

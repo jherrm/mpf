@@ -1,0 +1,7 @@
+mpf.modes.game.code.game module
+===============================
+
+.. automodule:: mpf.modes.game.code.game
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mpf.devices.shot module &mdash; Mission Pinball Framework v0.20.0 API Documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.20.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Mission Pinball Framework v0.20.0 API Documentation" href="index.html" />
+    <link rel="up" title="mpf.devices package" href="mpf.devices.html" />
+    <link rel="next" title="mpf.devices.shot_group module" href="mpf.devices.shot_group.html" />
+    <link rel="prev" title="mpf.devices.score_reel module" href="mpf.devices.score_reel.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.shot_group.html" title="mpf.devices.shot_group module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.score_reel.html" title="mpf.devices.score_reel module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
+          <li><a href="mpf.html" >mpf package</a> &raquo;</li>
+          <li><a href="mpf.devices.html" accesskey="U">mpf.devices package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-mpf.devices.shot">
+<span id="mpf-devices-shot-module"></span><h1>mpf.devices.shot module</h1>
+<p>Contains Shots device base class.</p>
+<dl class="class">
+<dt id="mpf.devices.shot.Shot">
+<em class="property">class </em><tt class="descclassname">mpf.devices.shot.</tt><tt class="descname">Shot</tt><big>(</big><em>machine</em>, <em>name</em>, <em>config</em>, <em>collection=None</em>, <em>validate=True</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="mpf.system.device.html#mpf.system.device.Device" title="mpf.system.device.Device"><tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></a></p>
+<dl class="attribute">
+<dt id="mpf.devices.shot.Shot.active_sequences">
+<tt class="descname">active_sequences</tt><em class="property"> = None</em></dt>
+<dd><p><em>List of tuples</em> &#8211; (id, current_position_index, next_switch)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.add_to_group">
+<tt class="descname">add_to_group</tt><big>(</big><em>group</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.advance">
+<tt class="descname">advance</tt><big>(</big><em>steps=1</em>, <em>mode=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Advances a shot profile forward.</p>
+<p>If this profile is at the last step and configured to roll over, it will
+roll over to the first step. If this profile is at the last step and not
+configured to roll over, this method has no effect.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.shot.Shot.class_label">
+<tt class="descname">class_label</tt><em class="property"> = 'shot'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.shot.Shot.collection">
+<tt class="descname">collection</tt><em class="property"> = 'shots'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.shot.Shot.config_section">
+<tt class="descname">config_section</tt><em class="property"> = 'shots'</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.control_events_in_mode">
+<tt class="descname">control_events_in_mode</tt><big>(</big><em>mode</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.device_added_to_mode">
+<tt class="descname">device_added_to_mode</tt><big>(</big><em>mode</em>, <em>player</em><big>)</big></dt>
+<dd><p>Called when this shot is dynamically added to a mode that was
+already started. Automatically enables the shot and calls the the method
+that&#8217;s usually called when a player&#8217;s turn starts since that was missed
+since the mode started after that.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.disable">
+<tt class="descname">disable</tt><big>(</big><em>mode=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Disables this shot. If the shot is not enabled, hits to it will
+not be processed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.enable">
+<tt class="descname">enable</tt><big>(</big><em>mode=None</em>, <em>profile=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.get_mode_state">
+<tt class="descname">get_mode_state</tt><big>(</big><em>mode</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.hit">
+<tt class="descname">hit</tt><big>(</big><em>mode='default#$%'</em>, <em>waterfall_hits=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Method which is called to indicate this shot was just hit. This
+method will advance the currently-active shot profile.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> &#8211; Boolean that forces this hit to be registered. Default is
+False which means if there are no balls in play (e.g. after a
+tilt) then this hit isn&#8217;t processed. Set this to True if you
+want to force the hit to be processed even if no balls are in
+play.</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the shot must be enabled in order for this hit to be
+processed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.jump">
+<tt class="descname">jump</tt><big>(</big><em>mode</em>, <em>state</em>, <em>lightshow_step=0</em><big>)</big></dt>
+<dd><p>Jumps to a certain state in the active shot profile.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>state</strong> &#8211; int of the state number you want to jump to. Note that states
+are zero-based, so the first state is 0.</li>
+<li><strong>lightshow_step</strong> &#8211; The step number that the associated light script
+should start playing at. Useful with rotations so this shot can
+pick up right where it left off. Default is 0.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.shot.Shot.monitor_enabled">
+<tt class="descname">monitor_enabled</tt><em class="property"> = False</em></dt>
+<dd><p>Class attribute which specifies whether any monitors have been registered
+to track shots.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.player_turn_start">
+<tt class="descname">player_turn_start</tt><big>(</big><em>player</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Called by the shot profile manager when a player&#8217;s turn starts to
+update the player reference to the current player and to apply the
+default machine-wide shot profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.player_turn_stop">
+<tt class="descname">player_turn_stop</tt><big>(</big><big>)</big></dt>
+<dd><p>Called by the shot profile manager when the player&#8217;s turn ends.
+Removes the profiles from the shot and removes the player reference.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.remove">
+<tt class="descname">remove</tt><big>(</big><big>)</big></dt>
+<dd><p>Remove this shot device. Destroys it and removes it from the shots
+collection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.remove_active_profile">
+<tt class="descname">remove_active_profile</tt><big>(</big><em>mode</em>, <em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.remove_from_enable_table">
+<tt class="descname">remove_from_enable_table</tt><big>(</big><em>mode</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.remove_from_group">
+<tt class="descname">remove_from_group</tt><big>(</big><em>group</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.reset">
+<tt class="descname">reset</tt><big>(</big><em>mode=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Resets the shot profile for the passed mode back to the first state (State 0).
+This method is the same as calling jump(0).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.update_current_state_name">
+<tt class="descname">update_current_state_name</tt><big>(</big><em>mode</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot.Shot.update_enable_table">
+<tt class="descname">update_enable_table</tt><big>(</big><em>profile=None</em>, <em>enable=None</em>, <em>mode=None</em><big>)</big></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mpf.devices.score_reel.html"
+                        title="previous chapter">mpf.devices.score_reel module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mpf.devices.shot_group.html"
+                        title="next chapter">mpf.devices.shot_group module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/mpf.devices.shot.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.shot_group.html" title="mpf.devices.shot_group module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.score_reel.html" title="mpf.devices.score_reel module"
+             >previous</a> |</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
+          <li><a href="mpf.html" >mpf package</a> &raquo;</li>
+          <li><a href="mpf.devices.html" >mpf.devices package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brian Madden, Gabe Knuth.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

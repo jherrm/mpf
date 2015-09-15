@@ -1,0 +1,17 @@
+mpf.modes.attract.code package
+==============================
+
+Submodules
+----------
+
+.. toctree::
+
+   mpf.modes.attract.code.attract
+
+Module contents
+---------------
+
+.. automodule:: mpf.modes.attract.code
+    :members:
+    :undoc-members:
+    :show-inheritance:

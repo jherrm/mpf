@@ -10,19 +10,20 @@ Submodules
    mpf.system.ball_controller
    mpf.system.bcp
    mpf.system.config
-   mpf.system.devices
+   mpf.system.device
+   mpf.system.device_manager
    mpf.system.events
    mpf.system.light_controller
    mpf.system.logic_blocks
    mpf.system.machine
-   mpf.system.machine_mode
-   mpf.system.modes
+   mpf.system.mode
+   mpf.system.mode_controller
    mpf.system.platform
+   mpf.system.player
    mpf.system.scoring
    mpf.system.scriptlet
-   mpf.system.shots
+   mpf.system.shot_profile_manager
    mpf.system.switch_controller
-   mpf.system.target_controller
    mpf.system.tasks
    mpf.system.timing
 

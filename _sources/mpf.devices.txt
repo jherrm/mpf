@@ -8,6 +8,8 @@ Submodules
 
    mpf.devices.autofire
    mpf.devices.ball_device
+   mpf.devices.ball_lock
+   mpf.devices.ball_save
    mpf.devices.diverter
    mpf.devices.driver
    mpf.devices.drop_target
@@ -16,12 +18,14 @@ Submodules
    mpf.devices.gi
    mpf.devices.led
    mpf.devices.matrix_light
+   mpf.devices.multiball
    mpf.devices.new_device_template
    mpf.devices.playfield
    mpf.devices.playfield_transfer
    mpf.devices.score_reel
+   mpf.devices.shot
+   mpf.devices.shot_group
    mpf.devices.switch
-   mpf.devices.target
 
 Module contents
 ---------------

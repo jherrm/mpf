@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mpf.system.shot_profile_manager module &mdash; Mission Pinball Framework v0.20.0 API Documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.20.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Mission Pinball Framework v0.20.0 API Documentation" href="index.html" />
+    <link rel="up" title="mpf.system package" href="mpf.system.html" />
+    <link rel="next" title="mpf.system.switch_controller module" href="mpf.system.switch_controller.html" />
+    <link rel="prev" title="mpf.system.scriptlet module" href="mpf.system.scriptlet.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mpf.system.switch_controller.html" title="mpf.system.switch_controller module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mpf.system.scriptlet.html" title="mpf.system.scriptlet module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
+          <li><a href="mpf.html" >mpf package</a> &raquo;</li>
+          <li><a href="mpf.system.html" accesskey="U">mpf.system package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-mpf.system.shot_profile_manager">
+<span id="mpf-system-shot-profile-manager-module"></span><h1>mpf.system.shot_profile_manager module</h1>
+<p>Contains the ShotProfileManager class.</p>
+<dl class="class">
+<dt id="mpf.system.shot_profile_manager.ShotProfileManager">
+<em class="property">class </em><tt class="descclassname">mpf.system.shot_profile_manager.</tt><tt class="descname">ShotProfileManager</tt><big>(</big><em>machine</em><big>)</big></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="mpf.system.shot_profile_manager.ShotProfileManager.mode_start_for_shot_groups">
+<tt class="descname">mode_start_for_shot_groups</tt><big>(</big><em>config</em>, <em>priority</em>, <em>mode</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Applies profiles to member shots of a dict of shot groups.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>config</strong> &#8211; Dict containing shot groups. Keys are shot group names.
+Values are settings for each shot group.</li>
+<li><strong>priority</strong> &#8211; Int of the priority these profiles will be applied at.</li>
+<li><strong>mode</strong> &#8211; A Mode class object for the mode which is applying these
+profiles. Used as the key to remove the profiles a specific mode
+applied later.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.shot_profile_manager.ShotProfileManager.mode_start_for_shots">
+<tt class="descname">mode_start_for_shots</tt><big>(</big><em>config</em>, <em>priority</em>, <em>mode</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>runs on mode start, sets the shots&#8217; enable_tables</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.shot_profile_manager.ShotProfileManager.mode_stop_for_shot_groups">
+<tt class="descname">mode_stop_for_shot_groups</tt><big>(</big><em>mode</em><big>)</big></dt>
+<dd><p>Removes all the profiles that were applied to shots based on shot
+group settings in a mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> &#8211; A Mode class which represents the mode that applied the
+profiles originally which will be used to determine which shot
+profiles should be removed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.shot_profile_manager.ShotProfileManager.mode_stop_for_shots">
+<tt class="descname">mode_stop_for_shots</tt><big>(</big><em>mode</em><big>)</big></dt>
+<dd><p>Runs on mode end</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.shot_profile_manager.ShotProfileManager.process_profile_config">
+<tt class="descname">process_profile_config</tt><big>(</big><em>profile_name</em>, <em>config</em><big>)</big></dt>
+<dd><p>Processes a shot profile config to convert everything to the format
+the shot controller needs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>config</strong> &#8211; Dict of the profile settings to process.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.shot_profile_manager.ShotProfileManager.register_profile">
+<tt class="descname">register_profile</tt><big>(</big><em>name</em>, <em>profile</em><big>)</big></dt>
+<dd><p>Registers a new shot profile with the shot controller which will
+allow it to be applied to shots.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; String name of the profile you&#8217;re registering.</li>
+<li><strong>profile</strong> &#8211; Dict of the profile settings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.shot_profile_manager.ShotProfileManager.register_profiles">
+<tt class="descname">register_profiles</tt><big>(</big><em>config</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Registers multiple shot profiles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>config</strong> &#8211; Dict containing the profiles you&#8217;re registering. Keys are
+profile names, values are dictionaries of profile settings.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mpf.system.scriptlet.html"
+                        title="previous chapter">mpf.system.scriptlet module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mpf.system.switch_controller.html"
+                        title="next chapter">mpf.system.switch_controller module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/mpf.system.shot_profile_manager.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mpf.system.switch_controller.html" title="mpf.system.switch_controller module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mpf.system.scriptlet.html" title="mpf.system.scriptlet module"
+             >previous</a> |</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
+          <li><a href="mpf.html" >mpf package</a> &raquo;</li>
+          <li><a href="mpf.system.html" >mpf.system package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brian Madden, Gabe Knuth.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

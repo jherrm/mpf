@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mpf.devices.shot_group module &mdash; Mission Pinball Framework v0.20.0 API Documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.20.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Mission Pinball Framework v0.20.0 API Documentation" href="index.html" />
+    <link rel="up" title="mpf.devices package" href="mpf.devices.html" />
+    <link rel="next" title="mpf.devices.switch module" href="mpf.devices.switch.html" />
+    <link rel="prev" title="mpf.devices.shot module" href="mpf.devices.shot.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.switch.html" title="mpf.devices.switch module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.shot.html" title="mpf.devices.shot module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
+          <li><a href="mpf.html" >mpf package</a> &raquo;</li>
+          <li><a href="mpf.devices.html" accesskey="U">mpf.devices package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-mpf.devices.shot_group">
+<span id="mpf-devices-shot-group-module"></span><h1>mpf.devices.shot_group module</h1>
+<p>Contains the ShotGroup base class.</p>
+<dl class="class">
+<dt id="mpf.devices.shot_group.ShotGroup">
+<em class="property">class </em><tt class="descclassname">mpf.devices.shot_group.</tt><tt class="descname">ShotGroup</tt><big>(</big><em>machine</em>, <em>name</em>, <em>config</em>, <em>collection=None</em>, <em>validate=True</em><big>)</big></dt>
+<dd><p>Bases: <a class="reference internal" href="mpf.system.device.html#mpf.system.device.Device" title="mpf.system.device.Device"><tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></a></p>
+<p>Represents a group of shots in a pinball machine by grouping
+together multiple <cite>Shot</cite> class devices. This is used so you get get
+&#8220;group-level&#8221; functionality, like shot rotation, shot group completion,
+etc. This would be used for a group of rollover lanes, a bank of standups,
+etc.</p>
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.advance">
+<tt class="descname">advance</tt><big>(</big><em>mode=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Advances the current active profile from every shot in the group
+one step forward.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.check_for_complete">
+<tt class="descname">check_for_complete</tt><big>(</big><em>mode</em><big>)</big></dt>
+<dd><p>Checks all the shots in this shot group. If they are all in the
+same state, then a complete event is posted.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.shot_group.ShotGroup.class_label">
+<tt class="descname">class_label</tt><em class="property"> = 'shot_group'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.shot_group.ShotGroup.collection">
+<tt class="descname">collection</tt><em class="property"> = 'shot_groups'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.shot_group.ShotGroup.config_section">
+<tt class="descname">config_section</tt><em class="property"> = 'shot_groups'</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.control_events_in_mode">
+<tt class="descname">control_events_in_mode</tt><big>(</big><em>mode</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.device_added_to_mode">
+<tt class="descname">device_added_to_mode</tt><big>(</big><em>mode</em>, <em>player</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.disable">
+<tt class="descname">disable</tt><big>(</big><em>mode=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Disables this shot group. Also disables all the shots in this
+group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.disable_rotation">
+<tt class="descname">disable_rotation</tt><big>(</big><em>**kwargs</em><big>)</big></dt>
+<dd><p>Disables shot rotation. If disabled, rotation events do not actually
+rotate the shots.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.enable">
+<tt class="descname">enable</tt><big>(</big><em>mode=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Enables this shot group. Also enables all the shots in this
+group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.enable_rotation">
+<tt class="descname">enable_rotation</tt><big>(</big><em>**kwargs</em><big>)</big></dt>
+<dd><p>Enables shot rotation. If disabled, rotation events do not actually
+rotate the shots.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.hit">
+<tt class="descname">hit</tt><big>(</big><em>mode</em>, <em>profile</em>, <em>state</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>One of the member shots in this shot group was hit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>profile</strong> &#8211; String name of the active profile of the shot that
+was hit.</li>
+<li><strong>profile</strong> &#8211; String name of the state name of the profile of
+the shot that was hit.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.remove">
+<tt class="descname">remove</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.remove_active_profile">
+<tt class="descname">remove_active_profile</tt><big>(</big><em>mode</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Removes the current active profile from every shot in the group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.reset">
+<tt class="descname">reset</tt><big>(</big><em>mode=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Resets each of the shots in this group back to the initial state in
+whatever shot profile they have applied. This is the same as calling
+each shot&#8217;s reset() method one-by-one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.rotate">
+<tt class="descname">rotate</tt><big>(</big><em>direction=None</em>, <em>steps=1</em>, <em>states=None</em>, <em>exclude_states=None</em>, <em>mode=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Rotates (or &#8220;shifts&#8221;) the state of all the shots in this group.
+This is used for things like lane change, where hitting the flipper
+button shifts all the states of the shots in the group to the left or
+right.</p>
+<p>This method actually transfers the current state of each shot profile
+to the left or the right, and the shot on the end rolls over to the
+taret on the other end.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>direction</strong> &#8211; String that specifies whether the rotation direction is
+to the left or right. Values are &#8216;right&#8217; or &#8216;left&#8217;. Default of
+None will cause the shot group to rotate in the direction as
+specified by the rotation_pattern.</li>
+<li><strong>steps</strong> &#8211; Integer of how many steps you want to rotate. Default is 1.</li>
+<li><strong>states</strong> &#8211; A string of a state or a list of strings that represent the
+targets that will be selected to rotate. If None (default), then
+all targets will be included.</li>
+<li><strong>exclude_states</strong> &#8211; A string of a state or a list of strings that
+controls whether any targets will <em>not</em> be rotated. (Any
+targets with an active profile in one of these states will not
+be included in the rotation. Default is None which means all
+targets will be rotated)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Note that this shot group must, and rotation_events for this
+shot group, must both be enabled for the rotation events to work.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.rotate_left">
+<tt class="descname">rotate_left</tt><big>(</big><em>steps=1</em>, <em>mode=None</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Rotates the state of the shots to the left. This method is the
+same as calling rotate(&#8216;left&#8217;, steps)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>steps</strong> &#8211; Integer of how many steps you want to rotate. Default is 1.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.shot_group.ShotGroup.rotate_right">
+<tt class="descname">rotate_right</tt><big>(</big><em>mode=None</em>, <em>steps=1</em>, <em>**kwargs</em><big>)</big></dt>
+<dd><p>Rotates the state of the shots to the right. This method is the
+same as calling rotate(&#8216;right&#8217;, steps)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>steps</strong> &#8211; Integer of how many steps you want to rotate. Default is 1.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mpf.devices.shot.html"
+                        title="previous chapter">mpf.devices.shot module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mpf.devices.switch.html"
+                        title="next chapter">mpf.devices.switch module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/mpf.devices.shot_group.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.switch.html" title="mpf.devices.switch module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mpf.devices.shot.html" title="mpf.devices.shot module"
+             >previous</a> |</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
+          <li><a href="mpf.html" >mpf package</a> &raquo;</li>
+          <li><a href="mpf.devices.html" >mpf.devices package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Brian Madden, Gabe Knuth.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

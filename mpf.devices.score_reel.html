@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.devices.score_reel module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
+    <title>mpf.devices.score_reel module &mdash; Mission Pinball Framework v0.20.0 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.20.0-dev69',
+        VERSION:     '0.20.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0 API Documentation" href="index.html" />
     <link rel="up" title="mpf.devices package" href="mpf.devices.html" />
-    <link rel="next" title="mpf.devices.switch module" href="mpf.devices.switch.html" />
+    <link rel="next" title="mpf.devices.shot module" href="mpf.devices.shot.html" />
     <link rel="prev" title="mpf.devices.playfield_transfer module" href="mpf.devices.playfield_transfer.html" /> 
   </head>
   <body>
@@ -39,12 +39,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="mpf.devices.switch.html" title="mpf.devices.switch module"
+          <a href="mpf.devices.shot.html" title="mpf.devices.shot module"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="mpf.devices.playfield_transfer.html" title="mpf.devices.playfield_transfer module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.devices.html" accesskey="U">mpf.devices package</a> &raquo;</li> 
       </ul>
@@ -61,7 +61,7 @@
 <dl class="class">
 <dt id="mpf.devices.score_reel.ScoreReel">
 <em class="property">class </em><tt class="descclassname">mpf.devices.score_reel.</tt><tt class="descname">ScoreReel</tt><big>(</big><em>machine</em>, <em>name</em>, <em>config</em>, <em>collection=None</em>, <em>validate=True</em><big>)</big></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></p>
+<dd><p>Bases: <a class="reference internal" href="mpf.system.device.html#mpf.system.device.Device" title="mpf.system.device.Device"><tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></a></p>
 <p>Represents an individual electro-mechanical score reel in a pinball
 machine.</p>
 <p>Multiples reels of this class can be grouped together into ScoreReelGroups
@@ -240,6 +240,12 @@ as well as maps the current player to the proper score reel.</p>
 <p>This controller is also responsible for working around broken
 ScoreReelGroups and &#8220;stacking&#8221; and switching out players when there are
 multiple players per ScoreReelGroup.</p>
+<dl class="attribute">
+<dt id="mpf.devices.score_reel.ScoreReelController.active_scorereelgroup">
+<tt class="descname">active_scorereelgroup</tt><em class="property"> = None</em></dt>
+<dd><p>Pointer to the active ScoreReelGroup for the current player.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="mpf.devices.score_reel.ScoreReelController.game_starting">
 <tt class="descname">game_starting</tt><big>(</big><em>queue</em>, <em>game</em><big>)</big></dt>
@@ -265,6 +271,26 @@ included because the game_starting event passes it.</li>
 <dt id="mpf.devices.score_reel.ScoreReelController.map_new_score_reel_group">
 <tt class="descname">map_new_score_reel_group</tt><big>(</big><big>)</big></dt>
 <dd><p>Creates a mapping of a player to a score reel group.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.score_reel.ScoreReelController.player_to_scorereel_map">
+<tt class="descname">player_to_scorereel_map</tt><em class="property"> = None</em></dt>
+<dd><p>This is a list of ScoreReelGroup objects which corresponds to player
+indexes. The first element [0] in this list is the first player (which
+is player index [0], the next one is the next player, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.score_reel.ScoreReelController.queue">
+<tt class="descname">queue</tt><em class="property"> = None</em></dt>
+<dd><p>Holds any active queue event queue objects</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mpf.devices.score_reel.ScoreReelController.reset_queue">
+<tt class="descname">reset_queue</tt><em class="property"> = None</em></dt>
+<dd><p>List of score reel groups that still need to be reset</p>
 </dd></dl>
 
 <dl class="method">
@@ -311,7 +337,7 @@ and included only because the score change event passes it.</li>
 <dl class="class">
 <dt id="mpf.devices.score_reel.ScoreReelGroup">
 <em class="property">class </em><tt class="descclassname">mpf.devices.score_reel.</tt><tt class="descname">ScoreReelGroup</tt><big>(</big><em>machine</em>, <em>name</em>, <em>config</em>, <em>collection=None</em>, <em>validate=True</em><big>)</big></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></p>
+<dd><p>Bases: <a class="reference internal" href="mpf.system.device.html#mpf.system.device.Device" title="mpf.system.device.Device"><tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></a></p>
 <p>Represents a logical grouping of score reels in a pinball machine, where
 multiple individual ScoreReel object make up the individual digits of this
 group. This group also has support for the blank zero &#8220;inserts&#8221; that some
@@ -570,8 +596,8 @@ handler for those events.</td>
   <p class="topless"><a href="mpf.devices.playfield_transfer.html"
                         title="previous chapter">mpf.devices.playfield_transfer module</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="mpf.devices.switch.html"
-                        title="next chapter">mpf.devices.switch module</a></p>
+  <p class="topless"><a href="mpf.devices.shot.html"
+                        title="next chapter">mpf.devices.shot module</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/mpf.devices.score_reel.txt"
@@ -604,12 +630,12 @@ handler for those events.</td>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="mpf.devices.switch.html" title="mpf.devices.switch module"
+          <a href="mpf.devices.shot.html" title="mpf.devices.shot module"
              >next</a> |</li>
         <li class="right" >
           <a href="mpf.devices.playfield_transfer.html" title="mpf.devices.playfield_transfer module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.devices.html" >mpf.devices package</a> &raquo;</li> 
       </ul>

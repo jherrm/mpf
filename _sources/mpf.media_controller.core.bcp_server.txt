@@ -1,0 +1,7 @@
+mpf.media_controller.core.bcp_server module
+===========================================
+
+.. automodule:: mpf.media_controller.core.bcp_server
+    :members:
+    :undoc-members:
+    :show-inheritance:

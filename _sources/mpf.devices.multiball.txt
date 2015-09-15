@@ -1,0 +1,7 @@
+mpf.devices.multiball module
+============================
+
+.. automodule:: mpf.devices.multiball
+    :members:
+    :undoc-members:
+    :show-inheritance:

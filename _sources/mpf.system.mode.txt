@@ -1,0 +1,7 @@
+mpf.system.mode module
+======================
+
+.. automodule:: mpf.system.mode
+    :members:
+    :undoc-members:
+    :show-inheritance:

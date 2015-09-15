@@ -1,0 +1,7 @@
+mpf.devices.shot_group module
+=============================
+
+.. automodule:: mpf.devices.shot_group
+    :members:
+    :undoc-members:
+    :show-inheritance:
