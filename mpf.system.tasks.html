@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.system.tasks module &mdash; Mission Pinball Framework v0.19.2 API Documentation</title>
+    <title>mpf.system.tasks module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.19.2',
+        VERSION:     '0.20.0-dev69',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.19.2 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
     <link rel="up" title="mpf.system package" href="mpf.system.html" />
     <link rel="next" title="mpf.system.timing module" href="mpf.system.timing.html" />
     <link rel="prev" title="mpf.system.target_controller module" href="mpf.system.target_controller.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="mpf.system.target_controller.html" title="mpf.system.target_controller module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" accesskey="U">mpf.system package</a> &raquo;</li> 
       </ul>
@@ -171,12 +171,6 @@ at any point, then be resumed later.</p>
 <p>To exit from a Task, just return.  This will raise a StopIteration
 exception which the scheduler will catch and remove the task from the
 run queue.</p>
-<dl class="staticmethod">
-<dt id="mpf.system.tasks.Task.Create">
-<em class="property">static </em><tt class="descname">Create</tt><big>(</big><em>callback</em>, <em>args=()</em>, <em>sleep=0</em><big>)</big></dt>
-<dd><p>Creates a new task and insert it into the runnable set.</p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="mpf.system.tasks.Task.NewTasks">
 <tt class="descname">NewTasks</tt><em class="property"> = set([])</em></dt>
@@ -186,6 +180,12 @@ run queue.</p>
 <dt id="mpf.system.tasks.Task.Tasks">
 <tt class="descname">Tasks</tt><em class="property"> = set([])</em></dt>
 <dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="mpf.system.tasks.Task.create">
+<em class="property">static </em><tt class="descname">create</tt><big>(</big><em>callback</em>, <em>args=()</em>, <em>sleep=0</em><big>)</big></dt>
+<dd><p>Creates a new task and insert it into the runnable set.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="mpf.system.tasks.Task.restart">
@@ -260,7 +260,7 @@ and then deleting it.</p>
         <li class="right" >
           <a href="mpf.system.target_controller.html" title="mpf.system.target_controller module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" >mpf.system package</a> &raquo;</li> 
       </ul>

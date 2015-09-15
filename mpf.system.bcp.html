@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.system.bcp module &mdash; Mission Pinball Framework v0.19.2 API Documentation</title>
+    <title>mpf.system.bcp module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.19.2',
+        VERSION:     '0.20.0-dev69',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.19.2 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
     <link rel="up" title="mpf.system package" href="mpf.system.html" />
     <link rel="next" title="mpf.system.config module" href="mpf.system.config.html" />
     <link rel="prev" title="mpf.system.ball_controller module" href="mpf.system.ball_controller.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="mpf.system.ball_controller.html" title="mpf.system.ball_controller module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" accesskey="U">mpf.system package</a> &raquo;</li> 
       </ul>
@@ -75,35 +75,25 @@ time using multiple instances of the BCPClientSocket class.</p>
 </table>
 <dl class="docutils">
 <dt>The following BCP commands are currently implemented:</dt>
-<dd>attract_start
-attract_stop
-ball_start?player=x&amp;ball=x
+<dd>ball_start?player_num=x&amp;ball=x
 ball_end
 config?volume=0.5
 error
-game_start
-game_end
 get
 goodbye
 hello?version=xxx
 mode_start?name=xxx&amp;priority=xxx
 mode_stop?name=xxx
-player_added?number=x
-player_score?value=x&amp;prev_value=x&amp;change=x
-player_turn_start?player=x
-player_variable?name=x&amp;value=x&amp;prev_value=x&amp;change=x
+player_added?player_num=x
+player_score?value=x&amp;prev_value=x&amp;change=x&amp;player_num=x
+player_turn_start?player_num=x
+player_variable?name=x&amp;value=x&amp;prev_value=x&amp;change=x&amp;player_num=x
 set
+shot?name=x
 switch?name=x&amp;state=x
 timer
 trigger?name=xxx</dd>
 </dl>
-<dl class="method">
-<dt id="mpf.system.bcp.BCP.bcp_game_start">
-<tt class="descname">bcp_game_start</tt><big>(</big><em>**kwargs</em><big>)</big></dt>
-<dd><p>Sends the BCP &#8216;game_start&#8217; and &#8216;player_added?number=1&#8217; commands to
-the remote BCP hosts.</p>
-</dd></dl>
-
 <dl class="method">
 <dt id="mpf.system.bcp.BCP.bcp_mode_start">
 <tt class="descname">bcp_mode_start</tt><big>(</big><em>config</em>, <em>priority</em>, <em>mode</em>, <em>**kwargs</em><big>)</big></dt>
@@ -703,7 +693,7 @@ will be preserved.</p>
         <li class="right" >
           <a href="mpf.system.ball_controller.html" title="mpf.system.ball_controller module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" >mpf.system package</a> &raquo;</li> 
       </ul>

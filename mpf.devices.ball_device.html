@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.devices.ball_device module &mdash; Mission Pinball Framework v0.19.2 API Documentation</title>
+    <title>mpf.devices.ball_device module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.19.2',
+        VERSION:     '0.20.0-dev69',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.19.2 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
     <link rel="up" title="mpf.devices package" href="mpf.devices.html" />
     <link rel="next" title="mpf.devices.diverter module" href="mpf.devices.diverter.html" />
     <link rel="prev" title="mpf.devices.autofire module" href="mpf.devices.autofire.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="mpf.devices.autofire.html" title="mpf.devices.autofire module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.devices.html" accesskey="U">mpf.devices package</a> &raquo;</li> 
       </ul>
@@ -60,18 +60,12 @@
 <p>Contains the base class for ball devices.</p>
 <dl class="class">
 <dt id="mpf.devices.ball_device.BallDevice">
-<em class="property">class </em><tt class="descclassname">mpf.devices.ball_device.</tt><tt class="descname">BallDevice</tt><big>(</big><em>machine</em>, <em>name</em>, <em>config</em>, <em>collection=None</em><big>)</big></dt>
-<dd><p>Bases: <a class="reference internal" href="mpf.system.devices.html#mpf.system.devices.Device" title="mpf.system.devices.Device"><tt class="xref py py-class docutils literal"><span class="pre">mpf.system.devices.Device</span></tt></a></p>
+<em class="property">class </em><tt class="descclassname">mpf.devices.ball_device.</tt><tt class="descname">BallDevice</tt><big>(</big><em>machine</em>, <em>name</em>, <em>config</em>, <em>collection=None</em>, <em>validate=True</em><big>)</big></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></p>
 <p>Base class for a &#8216;Ball Device&#8217; in a pinball machine.</p>
 <p>A ball device is anything that can hold one or more balls, such as a
 trough, an eject hole, a VUK, a catapult, etc.</p>
 <p>Args: Same as Device.</p>
-<dl class="attribute">
-<dt id="mpf.devices.ball_device.BallDevice.balls">
-<tt class="descname">balls</tt><em class="property"> = None</em></dt>
-<dd><p>Number of balls currently contained (held) in this device.</p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="mpf.devices.ball_device.BallDevice.class_label">
 <tt class="descname">class_label</tt><em class="property"> = 'ball_device'</em></dt>
@@ -85,6 +79,11 @@ trough, an eject hole, a VUK, a catapult, etc.</p>
 <dl class="attribute">
 <dt id="mpf.devices.ball_device.BallDevice.config_section">
 <tt class="descname">config_section</tt><em class="property"> = 'ball_devices'</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.ball_device.BallDevice.configure_eject_targets">
+<tt class="descname">configure_eject_targets</tt><big>(</big><em>config=None</em><big>)</big></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -181,28 +180,6 @@ the ball device will retry the eject again as long as the
 </table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mpf.devices.ball_device.BallDevice.eject_in_progress_target">
-<tt class="descname">eject_in_progress_target</tt><em class="property"> = None</em></dt>
-<dd><p>The ball device this device is currently trying to eject to.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="mpf.devices.ball_device.BallDevice.eject_queue">
-<tt class="descname">eject_queue</tt><em class="property"> = None</em></dt>
-<dd><p>Queue of the list of eject targets (ball devices) for the balls this
-device is trying to eject.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="mpf.devices.ball_device.BallDevice.flag_confirm_eject_via_count">
-<tt class="descname">flag_confirm_eject_via_count</tt><em class="property"> = None</em></dt>
-<dd><p>Notifies the count_balls() method that it should confirm an eject if
-it finds a ball missing. We need this to be a standalone variable
-since sometimes other eject methods will have to &#8220;fall back&#8221; on count
--based confirmations.</p>
-</dd></dl>
-
 <dl class="method">
 <dt id="mpf.devices.ball_device.BallDevice.get_additional_ball_capacity">
 <tt class="descname">get_additional_ball_capacity</tt><big>(</big><big>)</big></dt>
@@ -241,6 +218,11 @@ Options include:
 </dd></dl>
 
 <dl class="method">
+<dt id="mpf.devices.ball_device.BallDevice.hold">
+<tt class="descname">hold</tt><big>(</big><em>**kwargs</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="mpf.devices.ball_device.BallDevice.is_full">
 <tt class="descname">is_full</tt><big>(</big><big>)</big></dt>
 <dd><p>Checks to see if this device is full, meaning it is holding either
@@ -260,40 +242,6 @@ it&#8217;s a regular ball device.</p>
 <dt id="mpf.devices.ball_device.BallDevice.num_balls_ejectable">
 <tt class="descname">num_balls_ejectable</tt></dt>
 <dd><p>How many balls are in this device that could be ejected.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="mpf.devices.ball_device.BallDevice.num_balls_ejecting">
-<tt class="descname">num_balls_ejecting</tt><em class="property"> = None</em></dt>
-<dd><p>The number of balls that are currently in the process of being
-ejected. This is either 0, 1, or whatever the balls was
-for devices that eject all their balls at once.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="mpf.devices.ball_device.BallDevice.num_balls_in_transit">
-<tt class="descname">num_balls_in_transit</tt><em class="property"> = None</em></dt>
-<dd><p>The number of balls in transit to this device.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="mpf.devices.ball_device.BallDevice.num_balls_requested">
-<tt class="descname">num_balls_requested</tt><em class="property"> = None</em></dt>
-<dd><p>The number of balls this device is in the process of trying to get.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="mpf.devices.ball_device.BallDevice.num_eject_attempts">
-<tt class="descname">num_eject_attempts</tt><em class="property"> = None</em></dt>
-<dd><p>Counter of how many attempts to eject the current ball this device
-has tried. Eventually it will give up.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="mpf.devices.ball_device.BallDevice.num_jam_switch_count">
-<tt class="descname">num_jam_switch_count</tt><em class="property"> = None</em></dt>
-<dd><p>How many times the jam switch has been activated since the last
-successful eject.</p>
 </dd></dl>
 
 <dl class="method">
@@ -382,7 +330,7 @@ is fed from the playfield, then this request won&#8217;t work.</p>
         <li class="right" >
           <a href="mpf.devices.autofire.html" title="mpf.devices.autofire module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.devices.html" >mpf.devices package</a> &raquo;</li> 
       </ul>

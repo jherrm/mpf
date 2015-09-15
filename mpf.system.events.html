@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.system.events module &mdash; Mission Pinball Framework v0.19.2 API Documentation</title>
+    <title>mpf.system.events module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.19.2',
+        VERSION:     '0.20.0-dev69',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.19.2 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
     <link rel="up" title="mpf.system package" href="mpf.system.html" />
     <link rel="next" title="mpf.system.light_controller module" href="mpf.system.light_controller.html" />
     <link rel="prev" title="mpf.system.devices module" href="mpf.system.devices.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="mpf.system.devices.html" title="mpf.system.devices module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" accesskey="U">mpf.system package</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
 <p>Contains the base classes for the EventManager and QueuedEvents</p>
 <dl class="class">
 <dt id="mpf.system.events.EventManager">
-<em class="property">class </em><tt class="descclassname">mpf.system.events.</tt><tt class="descname">EventManager</tt><big>(</big><em>machine</em><big>)</big></dt>
+<em class="property">class </em><tt class="descclassname">mpf.system.events.</tt><tt class="descname">EventManager</tt><big>(</big><em>machine</em>, <em>setup_event_player=True</em><big>)</big></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="method">
 <dt id="mpf.system.events.EventManager.add_handler">
@@ -150,19 +150,6 @@ string will be converted to lowercase.</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mpf.system.events.EventManager.get_current_event">
-<tt class="descname">get_current_event</tt><big>(</big><big>)</big></dt>
-<dd><p>Returns a tuple with information about the current event that&#8217;s in
-progress.</p>
-<p>Returned result is a 4-element tuple:</p>
-<p>[0] event name (str)
-[1] event type (str)
-[2] post-event callback (meth)
-[3] kwargs (dict)</p>
-<p>If no event is in progress, these are all None.</p>
 </dd></dl>
 
 <dl class="method">
@@ -321,6 +308,11 @@ the next.)</p>
 <dl class="method">
 <dt id="mpf.system.events.EventManager.process_event_player">
 <tt class="descname">process_event_player</tt><big>(</big><em>config</em>, <em>mode=None</em>, <em>priority=0</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.events.EventManager.process_random_event_player">
+<tt class="descname">process_random_event_player</tt><big>(</big><em>config</em>, <em>mode=None</em>, <em>priority=0</em><big>)</big></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -521,7 +513,7 @@ for a description of how queue events work.</p>
         <li class="right" >
           <a href="mpf.system.devices.html" title="mpf.system.devices module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" >mpf.system package</a> &raquo;</li> 
       </ul>

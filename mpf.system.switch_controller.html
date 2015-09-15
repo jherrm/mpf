@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.system.switch_controller module &mdash; Mission Pinball Framework v0.19.2 API Documentation</title>
+    <title>mpf.system.switch_controller module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.19.2',
+        VERSION:     '0.20.0-dev69',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.19.2 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
     <link rel="up" title="mpf.system package" href="mpf.system.html" />
     <link rel="next" title="mpf.system.target_controller module" href="mpf.system.target_controller.html" />
     <link rel="prev" title="mpf.system.shots module" href="mpf.system.shots.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="mpf.system.shots.html" title="mpf.system.shots module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" accesskey="U">mpf.system package</a> &raquo;</li> 
       </ul>
@@ -67,6 +67,11 @@ states and posting events to the framework.</p>
 all switch activity in the machine and converting them into events.</p>
 <p>More info:
 <a class="reference external" href="http://missionpinball.com/docs/system-components/switch-controller/">http://missionpinball.com/docs/system-components/switch-controller/</a></p>
+<dl class="method">
+<dt id="mpf.system.switch_controller.SwitchController.add_monitor">
+<tt class="descname">add_monitor</tt><big>(</big><em>monitor</em><big>)</big></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="mpf.system.switch_controller.SwitchController.add_switch_handler">
 <tt class="descname">add_switch_handler</tt><big>(</big><em>switch_name</em>, <em>callback</em>, <em>state=1</em>, <em>ms=0</em>, <em>return_info=False</em>, <em>callback_kwargs=None</em><big>)</big></dt>
@@ -135,7 +140,7 @@ is in the state regardless of how long it&#8217;s been in that state.</p>
 
 <dl class="attribute">
 <dt id="mpf.system.switch_controller.SwitchController.log">
-<tt class="descname">log</tt><em class="property"> = &lt;logging.Logger object at 0x10728ee90&gt;</em></dt>
+<tt class="descname">log</tt><em class="property"> = &lt;logging.Logger object at 0x1049b4f90&gt;</em></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -221,6 +226,15 @@ last changed state.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="mpf.system.switch_controller.SwitchController.update_switches_from_hw">
+<tt class="descname">update_switches_from_hw</tt><big>(</big><big>)</big></dt>
+<dd><p>Updates the states of all the switches be re-reading the states from
+the hardware platform.</p>
+<p>This method works silently and does not post any events if any switches
+changed state.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="mpf.system.switch_controller.SwitchController.verify_switches">
 <tt class="descname">verify_switches</tt><big>(</big><big>)</big></dt>
 <dd><p>Loops through all the switches and queries their hardware states via
@@ -283,7 +297,7 @@ thinks the switches are in.</p>
         <li class="right" >
           <a href="mpf.system.shots.html" title="mpf.system.shots module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" >mpf.system package</a> &raquo;</li> 
       </ul>

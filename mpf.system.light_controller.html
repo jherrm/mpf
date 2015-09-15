@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.system.light_controller module &mdash; Mission Pinball Framework v0.19.2 API Documentation</title>
+    <title>mpf.system.light_controller module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.19.2',
+        VERSION:     '0.20.0-dev69',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.19.2 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
     <link rel="up" title="mpf.system package" href="mpf.system.html" />
     <link rel="next" title="mpf.system.logic_blocks module" href="mpf.system.logic_blocks.html" />
     <link rel="prev" title="mpf.system.events module" href="mpf.system.events.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="mpf.system.events.html" title="mpf.system.events module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" accesskey="U">mpf.system package</a> &raquo;</li> 
       </ul>
@@ -106,84 +106,6 @@ created by this list later.</li>
 </table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="mpf.system.light_controller.LightController.current_time">
-<tt class="descname">current_time</tt><em class="property"> = None</em></dt>
-<dd><p>The light controller uses a common system time for the entire show system so that every
-&#8220;current_time&#8221; of a single update cycle is the same everywhere. This
-ensures that multiple shows, scripts, and commands start in-sync
-regardless of any processing lag.</p>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="mpf.system.light_controller.LightController.hexstring_to_int">
-<em class="property">static </em><tt class="descname">hexstring_to_int</tt><big>(</big><em>inputstring</em>, <em>maxvalue=255</em><big>)</big></dt>
-<dd><p>Takes a string input of hex numbers and an integer.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>input_string</strong> &#8211; A string of incoming hex colors, like ffff00.</li>
-<li><strong>maxvalue</strong> &#8211; Integer of the max value you&#8217;d like to return. Default is
-255. (This is the real value of why this method exists.)</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Integer representation of the hex string.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="mpf.system.light_controller.LightController.hexstring_to_list">
-<em class="property">static </em><tt class="descname">hexstring_to_list</tt><big>(</big><em>input_string</em>, <em>output_length=3</em><big>)</big></dt>
-<dd><p>Takes a string input of hex numbers and returns a list of integers.</p>
-<p>This always groups the hex string in twos, so an input of ffff00 will
-be returned as [255, 255, 0]</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>input_string</strong> &#8211; A string of incoming hex colors, like ffff00.</li>
-<li><strong>output_length</strong> &#8211; Integer value of the number of items you&#8217;d like in
-your returned list. Default is 3. This method will ignore
-extra characters if the input_string is too long, and it will
-pad with zeros if the input string is too short.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">List of integers, like [255, 255, 0]</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="mpf.system.light_controller.LightController.load_shows">
-<tt class="descname">load_shows</tt><big>(</big><em>path</em><big>)</big></dt>
-<dd><p>Automatically loads all the light shows in a path.</p>
-<p>Light shows are added to the dictionary self.shows with they key
-set to the value of the file name.</p>
-<p>For example, the light show &#8216;sweep.yaml&#8217; will be loaded as
-self.shows[&#8216;sweep&#8217;]</p>
-<p>This method will also loop through sub-directories, allowing the game
-programmer to organize the light show files into folders as needed.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> &#8211; A string of the relative path to the folder, based from the
-root from where the mpf.py file is running.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="method">
 <dt id="mpf.system.light_controller.LightController.play_show">
 <tt class="descname">play_show</tt><big>(</big><em>show</em>, <em>priority=0</em>, <em>**kwargs</em><big>)</big></dt>
@@ -214,25 +136,6 @@ playing of the show. See Show.play() for options and details.</li>
 <dt id="mpf.system.light_controller.LightController.process_light_scripts">
 <tt class="descname">process_light_scripts</tt><big>(</big><em>config</em>, <em>mode=None</em>, <em>priority=0</em><big>)</big></dt>
 <dd></dd></dl>
-
-<dl class="attribute">
-<dt id="mpf.system.light_controller.LightController.queue">
-<tt class="descname">queue</tt><em class="property"> = None</em></dt>
-<dd><p>A list of dicts which contains things that need to be serviced in the
-future, including: (ot all are always used)</p>
-<blockquote>
-<div><ul class="simple">
-<li>lightname</li>
-<li>priority</li>
-<li>blend</li>
-<li>fadeend</li>
-<li>dest_color</li>
-<li>color</li>
-<li>playlist</li>
-<li>action_time</li>
-</ul>
-</div></blockquote>
-</dd></dl>
 
 <dl class="method">
 <dt id="mpf.system.light_controller.LightController.restore_lower_lights">
@@ -371,15 +274,6 @@ created by this script, call it like this:</p>
 tocks_per_sec=2)</dd>
 </dl>
 </div></blockquote>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="mpf.system.light_controller.LightController.running_show_keys">
-<tt class="descname">running_show_keys</tt><em class="property"> = None</em></dt>
-<dd><p>Dict of active light shows that were created from scripts. This is
-useful for stopping shows later. Keys are based on the &#8216;key&#8217; parameter
-specified when a script was run, values are references to the show
-object.</p>
 </dd></dl>
 
 <dl class="method">
@@ -622,6 +516,11 @@ here.</li>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="mpf.system.light_controller.Show.advance">
+<tt class="descname">advance</tt><big>(</big><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="mpf.system.light_controller.Show.change_speed">
 <tt class="descname">change_speed</tt><big>(</big><em>tocks_per_sec=1</em><big>)</big></dt>
 <dd><p>Changes the playback speed of a running Show.</p>
@@ -642,6 +541,11 @@ of your show, you could do something like:</p>
 <p>Note that you can&#8217;t just update the show&#8217;s tocks_per_second directly
 because we also need to update self.ticks_per_tock.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.light_controller.Show.do_load">
+<tt class="descname">do_load</tt><big>(</big><em>callback</em>, <em>show_actions=None</em><big>)</big></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="mpf.system.light_controller.Show.load_show_from_disk">
@@ -803,7 +707,7 @@ hold or not with True or False here.</li>
         <li class="right" >
           <a href="mpf.system.events.html" title="mpf.system.events module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" >mpf.system package</a> &raquo;</li> 
       </ul>

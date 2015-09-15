@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.devices.led module &mdash; Mission Pinball Framework v0.19.2 API Documentation</title>
+    <title>mpf.devices.led module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.19.2',
+        VERSION:     '0.20.0-dev69',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.19.2 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
     <link rel="up" title="mpf.devices package" href="mpf.devices.html" />
     <link rel="next" title="mpf.devices.matrix_light module" href="mpf.devices.matrix_light.html" />
     <link rel="prev" title="mpf.devices.gi module" href="mpf.devices.gi.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="mpf.devices.gi.html" title="mpf.devices.gi module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.devices.html" accesskey="U">mpf.devices package</a> &raquo;</li> 
       </ul>
@@ -60,8 +60,8 @@
 <p>Contains the LED parent classes.</p>
 <dl class="class">
 <dt id="mpf.devices.led.LED">
-<em class="property">class </em><tt class="descclassname">mpf.devices.led.</tt><tt class="descname">LED</tt><big>(</big><em>machine</em>, <em>name</em>, <em>config</em>, <em>collection=None</em><big>)</big></dt>
-<dd><p>Bases: <a class="reference internal" href="mpf.system.devices.html#mpf.system.devices.Device" title="mpf.system.devices.Device"><tt class="xref py py-class docutils literal"><span class="pre">mpf.system.devices.Device</span></tt></a></p>
+<em class="property">class </em><tt class="descclassname">mpf.devices.led.</tt><tt class="descname">LED</tt><big>(</big><em>machine</em>, <em>name</em>, <em>config</em>, <em>collection=None</em>, <em>validate=True</em><big>)</big></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">mpf.system.device.Device</span></tt></p>
 <p>Represents an light connected to an new-style interface board.
 Typically this is an LED.</p>
 <p>DirectLEDs can have any number of elements. Typically they&#8217;re either
@@ -150,32 +150,6 @@ color.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mpf.devices.led.LED.hexstring_to_list">
-<tt class="descname">hexstring_to_list</tt><big>(</big><em>input_string</em>, <em>output_length=3</em><big>)</big></dt>
-<dd><p>Takes a string input of hex numbers and returns a list of integers.</p>
-<p>This always groups the hex string in twos, so an input of ffff00 will
-be returned as [255, 255, 0]</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>input_string</strong> &#8211; A string of incoming hex colors, like ffff00.</li>
-<li><strong>output_length</strong> &#8211; Integer value of the number of items you&#8217;d like in
-your returned list. Default is 3. This method will ignore
-extra characters if the input_string is too long, and it will
-pad with zeros if the input string is too short.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">List of integers, like [255, 255, 0]</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="mpf.devices.led.LED.off">
 <tt class="descname">off</tt><big>(</big><em>fade_ms=0</em>, <em>priority=0</em>, <em>cache=True</em>, <em>force=False</em><big>)</big></dt>
 <dd></dd></dl>
@@ -189,6 +163,32 @@ pad with zeros if the input string is too short.</li>
 <dt id="mpf.devices.led.LED.restore">
 <tt class="descname">restore</tt><big>(</big><big>)</big></dt>
 <dd><p>Sets this LED to the cached state.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mpf.devices.led.LED.set_brightness_compensation">
+<tt class="descname">set_brightness_compensation</tt><big>(</big><em>value</em><big>)</big></dt>
+<dd><p>Sets the brightness compensation for this LED.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> &#8211; Str or list (of 1-to-3 items) of the new brightness
+compensation value to set. List items are floats. 1.0 is
+standard full brightness. 0.0 is off. 2.0 is 200% brightness
+(which only comes into play if the LED is not at full
+brightness). If the value is a string, it&#8217;s converted to a list,
+broken by commas.</td>
+</tr>
+</tbody>
+</table>
+<p>The brightness compensation list is three items long, one for each RGB
+element. If the LED has less than three elements, additional values are
+ignored.</p>
+<p>If the value list is only one item, that value is used for all three
+elements.</p>
+<p>If the value list is two items, a value of 1.0 is used for the third
+item.</p>
 </dd></dl>
 
 </dd></dl>
@@ -244,7 +244,7 @@ pad with zeros if the input string is too short.</li>
         <li class="right" >
           <a href="mpf.devices.gi.html" title="mpf.devices.gi module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.devices.html" >mpf.devices package</a> &raquo;</li> 
       </ul>

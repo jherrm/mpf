@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.system.config module &mdash; Mission Pinball Framework v0.19.2 API Documentation</title>
+    <title>mpf.system.config module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.19.2',
+        VERSION:     '0.20.0-dev69',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.19.2 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
     <link rel="up" title="mpf.system package" href="mpf.system.html" />
     <link rel="next" title="mpf.system.devices module" href="mpf.system.devices.html" />
     <link rel="prev" title="mpf.system.bcp module" href="mpf.system.bcp.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="mpf.system.bcp.html" title="mpf.system.bcp module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" accesskey="U">mpf.system package</a> &raquo;</li> 
       </ul>
@@ -69,7 +69,7 @@ automatically convert incoming calls to lowercase.</p>
 
 <dl class="class">
 <dt id="mpf.system.config.Config">
-<em class="property">class </em><tt class="descclassname">mpf.system.config.</tt><tt class="descname">Config</tt></dt>
+<em class="property">class </em><tt class="descclassname">mpf.system.config.</tt><tt class="descname">Config</tt><big>(</big><em>machine</em><big>)</big></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="staticmethod">
 <dt id="mpf.system.config.Config.check_config_file_version">
@@ -90,6 +90,11 @@ first line of the file. If so, it checks that &#8216;x&#8217; matches MPF&#8217;
 config_version specification.</p>
 <p>This check is done as integers.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.config.Config.check_for_invalid_sections">
+<tt class="descname">check_for_invalid_sections</tt><big>(</big><em>spec</em>, <em>config</em>, <em>validation_failure_info</em><big>)</big></dt>
+<dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="mpf.system.config.Config.dict_merge">
@@ -133,6 +138,66 @@ overwritten. Default is <cite>True</cite> which combines them.</li>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="mpf.system.config.Config.event_config_to_dict">
+<em class="property">static </em><tt class="descname">event_config_to_dict</tt><big>(</big><em>config</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="mpf.system.config.Config.hexstring_to_int">
+<em class="property">static </em><tt class="descname">hexstring_to_int</tt><big>(</big><em>inputstring</em>, <em>maxvalue=255</em><big>)</big></dt>
+<dd><p>Takes a string input of hex numbers and an integer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>input_string</strong> &#8211; A string of incoming hex colors, like ffff00.</li>
+<li><strong>maxvalue</strong> &#8211; Integer of the max value you&#8217;d like to return. Default is
+255. (This is the real value of why this method exists.)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Integer representation of the hex string.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="mpf.system.config.Config.hexstring_to_list">
+<em class="property">static </em><tt class="descname">hexstring_to_list</tt><big>(</big><em>input_string</em>, <em>output_length=3</em><big>)</big></dt>
+<dd><p>Takes a string input of hex numbers and returns a list of integers.</p>
+<p>This always groups the hex string in twos, so an input of ffff00 will
+be returned as [255, 255, 0]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>input_string</strong> &#8211; A string of incoming hex colors, like ffff00.</li>
+<li><strong>output_length</strong> &#8211; Integer value of the number of items you&#8217;d like in
+your returned list. Default is 3. This method will ignore
+extra characters if the input_string is too long, and it will
+pad with zeros if the input string is too short.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">List of integers, like [255, 255, 0]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="mpf.system.config.Config.int_to_hex_string">
+<em class="property">static </em><tt class="descname">int_to_hex_string</tt><big>(</big><em>source_int</em><big>)</big></dt>
+<dd><p>Converts an int from 0-255 to a one-byte (2 chars) hex string, with
+uppercase characters.</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -183,7 +248,7 @@ with that name and open it to read in the settings. It will
 first try to open it as a file directly (including any path
 that&#8217;s there). If that doesn&#8217;t work, it will try to open the
 file using the last path that worked. (This path is stored in
-<cite>config[&#8216;Config_path&#8217;]</cite>.)</li>
+<cite>config[&#8216;config_path&#8217;]</cite>.)</li>
 <li><strong>new_config_dict</strong> &#8211; A dictionary of settings to merge into the config
 dictionary.</li>
 </ul>
@@ -199,9 +264,41 @@ not both.</p>
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="mpf.system.config.Config.lookup_invalid_config_setting">
+<tt class="descname">lookup_invalid_config_setting</tt><big>(</big><em>setting</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="mpf.system.config.Config.normalize_hex_string">
+<em class="property">static </em><tt class="descname">normalize_hex_string</tt><big>(</big><em>source_hex</em>, <em>num_chars=2</em><big>)</big></dt>
+<dd><p>Takes an incoming hex value and converts it to uppercase and fills in
+leading zeros.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>source_hex</strong> &#8211; Incoming source number. Can be any format.</li>
+<li><strong>num_chars</strong> &#8211; Total number of characters that will be returned. Default
+is two.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns: String, uppercase, zero padded to the num_chars.</p>
+<p>Example usage: Send &#8220;c&#8221; as source_hex, returns &#8220;0C&#8221;.</p>
+</dd></dl>
+
 <dl class="staticmethod">
 <dt id="mpf.system.config.Config.process_config">
 <em class="property">static </em><tt class="descname">process_config</tt><big>(</big><em>config_spec</em>, <em>source</em>, <em>target=None</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.config.Config.process_config2">
+<tt class="descname">process_config2</tt><big>(</big><em>config_spec</em>, <em>source</em>, <em>section_name=None</em>, <em>target=None</em>, <em>result_type='dict'</em><big>)</big></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
@@ -243,6 +340,21 @@ spaces in the string, with each item converted to lowercase.</td>
 <dl class="staticmethod">
 <dt id="mpf.system.config.Config.validate_config_item">
 <em class="property">static </em><tt class="descname">validate_config_item</tt><big>(</big><em>spec</em>, <em>item='item not in config!&#64;#'</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.config.Config.validate_config_item2">
+<tt class="descname">validate_config_item2</tt><big>(</big><em>spec</em>, <em>validation_failure_info</em>, <em>item='item not in config!&#64;#'</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.config.Config.validate_item">
+<tt class="descname">validate_item</tt><big>(</big><em>item</em>, <em>validator</em>, <em>validation_failure_info</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mpf.system.config.Config.validation_error">
+<tt class="descname">validation_error</tt><big>(</big><em>item</em>, <em>validation_failure_info</em><big>)</big></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -298,7 +410,7 @@ spaces in the string, with each item converted to lowercase.</td>
         <li class="right" >
           <a href="mpf.system.bcp.html" title="mpf.system.bcp module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" >mpf.system package</a> &raquo;</li> 
       </ul>

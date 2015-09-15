@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mpf.system.platform module &mdash; Mission Pinball Framework v0.19.2 API Documentation</title>
+    <title>mpf.system.platform module &mdash; Mission Pinball Framework v0.20.0-dev69 API Documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.19.2',
+        VERSION:     '0.20.0-dev69',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Mission Pinball Framework v0.19.2 API Documentation" href="index.html" />
+    <link rel="top" title="Mission Pinball Framework v0.20.0-dev69 API Documentation" href="index.html" />
     <link rel="up" title="mpf.system package" href="mpf.system.html" />
     <link rel="next" title="mpf.system.scoring module" href="mpf.system.scoring.html" />
     <link rel="prev" title="mpf.system.modes module" href="mpf.system.modes.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="mpf.system.modes.html" title="mpf.system.modes module"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" accesskey="U">mpf.system package</a> &raquo;</li> 
       </ul>
@@ -135,21 +135,15 @@ object which will be called to access the hardware.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mpf.system.platform.Platform.get_switch_state">
-<tt class="descname">get_switch_state</tt><big>(</big><em>switch</em><big>)</big></dt>
-<dd><p>Subclass this method in a platform module to get the hardware state
+<dt id="mpf.system.platform.Platform.get_hw_switch_states">
+<tt class="descname">get_hw_switch_states</tt><big>(</big><big>)</big></dt>
+<dd><p>Subclass this method in a platform module to return the hardware
+states of all the switches on that platform.
 of a switch.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>switch</strong> &#8211; A class <cite>Switch</cite> object.</td>
-</tr>
-</tbody>
-</table>
-<p>Return a value of 1 if the switch is active, and 0 if the switch is
-inactive. This method should not compensate for NO or NC status, rather,
-it should return the raw hardware state of the switch.</p>
+<p>This method should return a dict with the switch numbers as keys and the
+hardware state of the switches as values. (0 = inactive, 1 = active)
+This method should not compensate for NO or NC status, rather, it
+should return the raw hardware states of the switches.</p>
 </dd></dl>
 
 <dl class="method">
@@ -182,8 +176,8 @@ prevent 100% CPU utilization.)</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sw_name</strong> &#8211; String name of the switch.</li>
-<li><strong>sw_activity</strong> &#8211; String description of the switch activity this rule
-will be set for, either &#8216;active&#8217; or &#8216;inactive&#8217;.</li>
+<li><strong>sw_activity</strong> &#8211; Int representing the switch state this rule will be set
+for. 1 is active, 0 is inactive.</li>
 <li><strong>coil_name</strong> &#8211; String name of the coil.</li>
 <li><strong>coil_action_ms</strong> &#8211; Total time in ms the coil should activate for.</li>
 <li><strong>pulse_ms</strong> &#8211; How long in ms the coil should activate for. Default is 0.</li>
@@ -297,7 +291,7 @@ it&#8217;s a bit more convenient.</p>
         <li class="right" >
           <a href="mpf.system.modes.html" title="mpf.system.modes module"
              >previous</a> |</li>
-        <li><a href="index.html">Mission Pinball Framework v0.19.2 API Documentation</a> &raquo;</li>
+        <li><a href="index.html">Mission Pinball Framework v0.20.0-dev69 API Documentation</a> &raquo;</li>
           <li><a href="mpf.html" >mpf package</a> &raquo;</li>
           <li><a href="mpf.system.html" >mpf.system package</a> &raquo;</li> 
       </ul>
