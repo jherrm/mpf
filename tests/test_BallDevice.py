@@ -1613,11 +1613,8 @@ class TestBallDevice(MpfTestCase):
         assert not coil4.pulse.called
 
     def test_player_controlled_eject(self):
-        # tests the player hitting a switch to eject a ball to the pf
-
-        trough = self.machine.ball_devices['test_trough']
-        launcher = self.machine.ball_devices['test_launcher']
-        playfield = self.machine.ball_devices['playfield']
+        # tests starting a game, ball ejects to launcher, player has to hit a
+        # button to launch the ball
 
         trough_coil = self.machine.coils['eject_coil1']
         trough_coil.pulse = MagicMock()
@@ -1630,16 +1627,12 @@ class TestBallDevice(MpfTestCase):
         self.machine.switch_controller.process_switch("s_ball_switch2", 1)
 
         self.advance_time_and_run(1)
-        trough.eject()
-        quit()
 
-        # playfield wants a ball. Ball should end up in the launcher but not
-        # launch
-        self.machine.playfield.add_ball(trigger_event='sw_launch',
-                                        player_controlled=True)
+        # Start a game
+        self.machine.events.post('game_start')
 
-
-
+        # Trough should eject the ball, switches should bounce around a bit
+        # ball should end up in launcher
         trough_coil.pulse.assert_called_once_with()
         self.machine.switch_controller.process_switch("s_ball_switch1", 0)
         self.machine.switch_controller.process_switch("s_ball_switch2", 0)
@@ -1649,13 +1642,14 @@ class TestBallDevice(MpfTestCase):
         self.machine.switch_controller.process_switch("s_ball_switch_launcher", 1)
         self.advance_time_and_run(.1)
 
+        # Launcher should not fire yet
         assert not launcher_coil.pulse.called
 
         # player hits switch tagged with 'launch', ball should launch
-
         assert 'launch' in self.machine.switches['s_launch'].tags
 
         self.machine.switch_controller.process_switch("s_launch", 1)
+        self.advance_time_and_run(1)
 
         launcher_coil.pulse.assert_called_once_with()
 

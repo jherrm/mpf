@@ -85,6 +85,8 @@ class TestBallLock(MpfTestCase):
 
         # launcher receives and ejects
         self.machine.switch_controller.process_switch("s_ball_switch_launcher", 1)
+        self.machine.switch_controller.process_switch("s_launch", 1)
+        self.machine.switch_controller.process_switch("s_launch", 0)
         self.advance_time_and_run(1)
         self.assertEquals(1, launcher.balls)
 
@@ -94,6 +96,7 @@ class TestBallLock(MpfTestCase):
 
         # launcher shoots the ball
         self.machine.switch_controller.process_switch("s_ball_switch_launcher", 0)
+
         self.advance_time_and_run(1)
         self.assertEquals(0, launcher.balls)
 
@@ -133,6 +136,8 @@ class TestBallLock(MpfTestCase):
 
         # launcher receives and ejects
         self.machine.switch_controller.process_switch("s_ball_switch_launcher", 1)
+        self.machine.switch_controller.process_switch("s_launch", 1)
+        self.machine.switch_controller.process_switch("s_launch", 0)
         self.advance_time_and_run(1)
         self.assertEquals(1, launcher.balls)
 
@@ -254,6 +259,8 @@ class TestBallLock(MpfTestCase):
 
         # launcher receives and ejects
         self.machine.switch_controller.process_switch("s_ball_switch_launcher", 1)
+        self.machine.switch_controller.process_switch("s_launch", 1)
+        self.machine.switch_controller.process_switch("s_launch", 0)
         self.advance_time_and_run(1)
         self.assertEquals(1, launcher.balls)
 
@@ -293,6 +300,8 @@ class TestBallLock(MpfTestCase):
 
         # launcher receives and ejects
         self.machine.switch_controller.process_switch("s_ball_switch_launcher", 1)
+        self.machine.switch_controller.process_switch("s_launch", 1)
+        self.machine.switch_controller.process_switch("s_launch", 0)
         self.advance_time_and_run(1)
         self.assertEquals(1, launcher.balls)
 
@@ -371,6 +380,8 @@ class TestBallLock(MpfTestCase):
 
         # launcher receives and ejects
         self.machine.switch_controller.process_switch("s_ball_switch_launcher", 1)
+        self.machine.switch_controller.process_switch("s_launch", 1)
+        self.machine.switch_controller.process_switch("s_launch", 0)
         self.advance_time_and_run(1)
         self.assertEquals(1, launcher.balls)
 

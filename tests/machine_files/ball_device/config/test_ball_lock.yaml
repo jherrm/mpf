@@ -20,6 +20,9 @@ switches:
     s_start:
         number:
         tags: start
+    s_launch:
+        number:
+        tags: launch
     s_ball_switch1:
         number:
     s_ball_switch2:

@@ -260,10 +260,24 @@ class BallDevice(Device):
         return self._handle_eject_queue()
 
     def _handle_unexpected_balls(self, balls):
-        self.log.debug("Received %s unexpected balls", balls)
-        self.machine.events.post('balldevice_captured_from_{}'.format(
-                                 self.config['captures_from']),
-                                 balls=balls)
+
+        if self.mechanical_eject_in_progress:
+            # assume the mechanical eject failed
+            self.machine.events.post('balldevice_{}_mechanical_eject_failed'.
+                                     format(self.name), balls=balls)
+
+            self._cancel_incoming_ball_at_target(self.eject_in_progress_target)
+            self.num_balls_ejecting = 0
+            self._cancel_eject_confirmation()
+
+            # todo should going to idle cancel the eject?
+
+            return self._switch_state('idle')
+        else:
+            self.log.debug("Received %s unexpected balls", balls)
+            self.machine.events.post('balldevice_captured_from_{}'.format(
+                                     self.config['captures_from']),
+                                     balls=balls)
 
     def _handle_new_balls(self, balls):
         self._count_consistent = False
