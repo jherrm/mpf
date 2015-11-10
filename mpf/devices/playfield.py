@@ -159,8 +159,7 @@ class Playfield(BallDevice):
         """
         return 999
 
-    def add_ball(self, balls=1, source_name=None, source_device=None,
-                 trigger_event=None, player_controlled=False):
+    def add_ball(self, balls=1, source_name=None, source_device=None):
         """Adds live ball(s) to the playfield.
 
         Args:
@@ -249,15 +248,10 @@ class Playfield(BallDevice):
                               " add a ball.")
             return False
 
-        self.log.debug("Received request to add %s ball(s). Source device: %s."
-                       " Wait for event: %s. Player-controlled: %s", balls,
-                       source_device.name, trigger_event, player_controlled)
+        self.log.debug("Received request to add %s ball(s). Source device: "
+                       "%s.", balls, source_device.name)
 
-        if player_controlled:
-            source_device.setup_player_controlled_eject(balls=balls,
-                target=self, trigger_event=trigger_event)
-        else:
-            source_device.eject(balls=balls, target=self, get_ball=True)
+        source_device.eject(balls=balls, target=self, get_ball=True)
 
         return True
 

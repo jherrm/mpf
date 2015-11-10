@@ -167,7 +167,7 @@ config_validator:
 #        eject_switch: single|self.machine.switches[%]|None
         entrance_switch: single|self.machine.switches[%]|None
         jam_switch: single|self.machine.switches[%]|None
-        eject_count_hold_times: list|ms|None
+#        eject_count_hold_times: list|ms|None
         confirm_eject_type: single|str|count
         captures_from: single|str|playfield
         eject_targets: list|str|playfield
@@ -177,7 +177,7 @@ config_validator:
         ball_missing_target: single|str|playfield
         confirm_eject_switch: single|self.machine.switches[%]|None
         confirm_eject_event: single|str|None
-        balls_per_eject: single|int|1
+#        balls_per_eject: single|int|1
         max_eject_attempts: single|int|0
         ball_switches: list|self.machine.switches[%]|None
         ball_capacity: single|int|None
@@ -189,7 +189,7 @@ config_validator:
         eject_events: dict|str:ms|None
         eject_all_events: dict|str:ms|None
         mechanical_eject: single|bool|False
-        mechanical_eject_trigger_time: single|ms|200ms
+#        mechanical_eject_trigger_time: single|ms|200ms
     ball_locks:
         balls_to_lock: single|int|
         lock_devices: list|self.machine.ball_devices[%]|
@@ -368,6 +368,7 @@ config_validator:
         max_players: single|int|4
         start_game_switch_tag: single|str|start
         add_player_switch_tag: single|str|start
+        player_controlled_eject_tag: single|str|launch
     gis:
         number: single|str|
         number_str: single|str|

@@ -124,8 +124,10 @@ class BallSave(Device):
         self.machine.events.post('ball_save_{}_saving_ball'.format(self.name),
                                  balls=balls)
 
-        self.source_playfield.add_ball(balls=balls,
-            player_controlled=self.config['auto_launch']^1)
+        if self.config['auto_launch']:
+            self.source_playfield.add_ball(balls=balls)
+        else:
+            self.machine.game.stage_ball_for_launch()
 
         if not self.unlimited_saves:
             self.saves_remaining -= balls

@@ -64,7 +64,8 @@ class TestBallDeviceManualEject(MpfTestCase):
         assert not coil2.pulse.called
 
         # request an ball
-        playfield.add_ball(player_controlled=True)
+        # playfield.add_ball(player_controlled=True)
+        device2.request_ball()
         self.advance_time_and_run(1)
 
         # trough eject
@@ -127,7 +128,8 @@ class TestBallDeviceManualEject(MpfTestCase):
         assert not coil2.pulse.called
 
         # request an ball
-        playfield.add_ball(player_controlled=True)
+        # playfield.add_ball(player_controlled=True)
+        device2.request_ball()
         self.advance_time_and_run(1)
 
         # trough eject
@@ -211,7 +213,8 @@ class TestBallDeviceManualEject(MpfTestCase):
         assert not coil2.pulse.called
 
         # request an ball
-        playfield.add_ball(player_controlled=True)
+        # playfield.add_ball(player_controlled=True)
+        device2.request_ball()
         self.advance_time_and_run(0.1)
 
         # trough eject
@@ -322,8 +325,9 @@ class TestBallDeviceManualEject(MpfTestCase):
         assert not coil1.pulse.called
         assert not coil2.pulse.called
 
-        # request an ball
-        playfield.add_ball(player_controlled=True)
+        # request a ball
+        # playfield.add_ball(player_controlled=True)
+        device2.request_ball()
         self.advance_time_and_run(1)
 
         # trough eject
@@ -372,7 +376,8 @@ class TestBallDeviceManualEject(MpfTestCase):
         assert not coil2.pulse.called
 
         # will request a second ball. launcher has to use count eject confirmation
-        playfield.add_ball(player_controlled=True)
+        # playfield.add_ball(player_controlled=True)
+        device2.request_ball()
         self.advance_time_and_run(1)
 
         # trough eject
@@ -478,7 +483,11 @@ class TestBallDeviceManualEject(MpfTestCase):
         assert not coil2.pulse.called
 
         # request an ball
-        playfield.add_ball(source_device=target, player_controlled=True)
+        # playfield.add_ball(source_device=target, player_controlled=True)
+        device2.request_ball()  # todo add source device?
+
+
+        # device2.request_ball()
         self.advance_time_and_run(1)
 
         # trough eject
@@ -530,7 +539,8 @@ class TestBallDeviceManualEject(MpfTestCase):
         assert not coil2.pulse.called
 
         # request an ball
-        playfield.add_ball(player_controlled=True)
+        # playfield.add_ball(player_controlled=True)
+        device2.request_ball()
         self.advance_time_and_run(0.1)
 
         # trough eject
@@ -634,7 +644,8 @@ class TestBallDeviceManualEject(MpfTestCase):
         assert not coil2.pulse.called
 
         # request an ball
-        playfield.add_ball(player_controlled=True)
+        # playfield.add_ball(player_controlled=True)
+        device2.request_ball()
         self.advance_time_and_run(1)
 
         # trough eject
@@ -716,7 +727,8 @@ class TestBallDeviceManualEject(MpfTestCase):
         assert not coil2.pulse.called
 
         # request an ball to pf
-        playfield.add_ball(player_controlled=False)
+        # playfield.add_ball(player_controlled=False)
+        playfield.add_ball()
         self.advance_time_and_run(1)
 
         # request an ball to launcher
@@ -834,7 +846,8 @@ class TestBallDeviceManualEject(MpfTestCase):
         device2.request_ball()
 
         # request an ball to pf
-        playfield.add_ball(player_controlled=False)
+        # playfield.add_ball(player_controlled=False)
+        playfield.add_ball()
         self.advance_time_and_run(1)
 
         # trough eject

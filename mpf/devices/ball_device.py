@@ -45,14 +45,7 @@ class BallDevice(Device):
         being used for some other eject, and thus not available."""
 
         self.eject_queue = deque()
-        """ Queue of three-item tuples that represent ejects this device needs
-        to do.
-
-        Tuple structure:
-        [0] = the eject target device
-        [1] = boolean as to whether this is a mechanical eject
-        [2] = trigger event which will trigger the actual eject attempts
-        """
+        """Queue of eject target devices."""
 
         self.num_eject_attempts = 0
         """ Counter of how many attempts to eject the this device has tried.
@@ -111,9 +104,8 @@ class BallDevice(Device):
         # each tuple is (time.time() formatted timeout, source device)
 
         self.ball_requests = deque()
-        # deque of tuples that holds requests from target devices for balls
-        # that this device could fulfil
-        # each tuple is (target device, boolean player_controlled flag)
+        # queue that holds requests from target devices for balls
+        # that this device could fulfill
 
         self._source_ejecting_balls = 0
         # the number of balls that a source device is in the process of
@@ -364,7 +356,7 @@ class BallDevice(Device):
         # 2. eject can be confirmed
         # 2. eject of source can fail
         if len(self.eject_queue):
-            self.eject_in_progress_target = self.eject_queue[0][0]
+            self.eject_in_progress_target = self.eject_queue[0]
         else:
             self.eject_in_progress_target = self.config['eject_targets'][0]
 
@@ -454,23 +446,20 @@ class BallDevice(Device):
     # ------------------------ State: wait_for_eject --------------------------
 
     def _state_wait_for_eject_start(self):
-        target = self.eject_queue[0][0]
+        target = self.eject_queue[0]
         if target.get_additional_ball_capacity():
             return self._switch_state("ejecting")
 
     # --------------------------- State: ejecting -----------------------------
 
     def _state_ejecting_start(self):
-        (self.eject_in_progress_target,
-         self.mechanical_eject_in_progress,
-         self.trigger_event) = (self.eject_queue.popleft())
+        self.eject_in_progress_target = self.eject_queue.popleft()
 
         if self.debug:
             self.log.debug("Setting eject_in_progress_target: %s, " +
-                           "mechanical: %s, trigger_events %s",
+                           "mechanical: %s",
                            self.eject_in_progress_target.name,
-                           self.mechanical_eject_in_progress,
-                           self.trigger_event)
+                           self.mechanical_eject_in_progress)
 
         self.num_eject_attempts += 1
         self.num_balls_ejecting = 1
@@ -567,8 +556,8 @@ class BallDevice(Device):
 
     def _source_device_balls_available(self, **kwargs):
         if len(self.ball_requests):
-            (target, player_controlled) = self.ball_requests.popleft()
-            if self._setup_or_queue_eject_to_target(target, player_controlled):
+            target = self.ball_requests.popleft()
+            if self._setup_or_queue_eject_to_target(target):
                 return False
 
     def _source_device_eject_attempt(self, balls, target, source, queue, **kwargs):
@@ -585,7 +574,7 @@ class BallDevice(Device):
         self._source_ejecting_balls += 1
 
     def _cancel_eject(self):
-        target = self.eject_queue[0][0]
+        target = self.eject_queue[0]
         self.eject_queue.popleft()
         # ripple this to the next device/register handler
         self.machine.events.post('balldevice_{}_ball_lost'.format(self.name),
@@ -1014,17 +1003,16 @@ class BallDevice(Device):
 
         return self._switch_state("invalid")
 
-    def _setup_or_queue_eject_to_target(self, target, player_controlled=False):
+    def _setup_or_queue_eject_to_target(self, target):
         if self.available_balls > 0 and self != target:
             path = deque()
             path.append(self)
             path.append(target)
         else:
-
             path = self.find_one_available_ball()
             if not path:
                 # TODO: put into queue here
-                self.ball_requests.append((target, player_controlled))
+                self.ball_requests.append(target)
                 return False
 
             if target != self:
@@ -1034,36 +1022,42 @@ class BallDevice(Device):
 
                 path.append(target)
 
-        path[0].setup_eject_chain(path, player_controlled)
+        path[0].setup_eject_chain(path)
 
         return True
 
-    def setup_player_controlled_eject(self, balls=1, target=None,
-                                      trigger_event=None):
-        # TODO: handle trigger_event
+    # def setup_player_controlled_eject(self, balls=1, target=None,
+    #                                   trigger_event=None):
+    #     """Sets up a player-controlled eject which means the player chooses
+    #     when the eject takes place rather than ejecting the ball right away.
+    #
+    #     """
+    #
+    #
+    #     if self.debug:
+    #         self.log.debug("Setting up player-controlled eject. Balls: %s, "
+    #                        "Target: %s, trigger_event: %s",
+    #                        balls, target, trigger_event)
+    #
+    #     if not self.config['mechanical_eject'] and not trigger_event:
+    #         self.eject(balls, target=target)
+    #         return
+    #
+    #     assert balls == 1
+    #
+    #     self._setup_or_queue_eject_to_target(self, True)
+    #
+    #     # TODO: use callback here!
+    #     self.available_balls -= 1
+    #     target.available_balls += 1
+    #
+    #     self.eject_queue.append((target, True, trigger_event))
+    #     quit()
+    #
+    #     return self._count_balls()
 
-        if self.debug:
-            self.log.debug("Setting up player-controlled eject. Balls: %s, "
-                           "Target: %s, trigger_event: %s",
-                           balls, target, trigger_event)
+    def setup_eject_chain(self, path):
 
-        if not self.config['mechanical_eject']:
-            self.eject(balls, target=target)
-            return
-
-        assert balls == 1
-
-        self._setup_or_queue_eject_to_target(self, True)
-
-        # TODO: use callback here!
-        self.available_balls -= 1
-        target.available_balls += 1
-
-        self.eject_queue.append((target, True, trigger_event))
-
-        return self._count_balls()
-
-    def setup_eject_chain(self, path, player_controlled=False):
         if self.available_balls <= 0:
             raise AssertionError("Do not have balls")
 
@@ -1074,13 +1068,13 @@ class BallDevice(Device):
         if source != self:
             raise AssertionError("Path starts somewhere else!")
 
-        self._setup_eject_chain(path, player_controlled)
+        self._setup_eject_chain(path)
 
         target.available_balls += 1
 
         self.machine.events.post_boolean('balldevice_balls_available')
 
-    def _setup_eject_chain(self, path, player_controlled):
+    def _setup_eject_chain(self, path):
 
         next_hop = path.popleft()
 
@@ -1088,14 +1082,11 @@ class BallDevice(Device):
             raise AssertionError("Broken path")
 
         # append to queue
-        if player_controlled and self.config['mechanical_eject']:
-            self.eject_queue.append((next_hop, True, None))
-        else:
-            self.eject_queue.append((next_hop, False, None))
+        self.eject_queue.append(next_hop)
 
         # check if we traversed the whole path
         if len(path) > 0:
-            next_hop._setup_eject_chain(path, player_controlled)
+            next_hop._setup_eject_chain(path)
 
         method_name = "_state_" + self._state + "_eject_request"
         method = getattr(self, method_name, lambda: None)
@@ -1199,7 +1190,7 @@ class BallDevice(Device):
         if self.config['eject_coil']:
             if self.mechanical_eject_in_progress:
                 self.log.debug("Will not fire eject coil because of mechanical"
-                               "eject")
+                               " eject")
             else:
                 self._fire_eject_coil()
 
@@ -1517,9 +1508,7 @@ class BallDevice(Device):
             self.log.debug("Eject failed")
 
         if retry:
-            self.eject_queue.appendleft((self.eject_in_progress_target,
-                                         self.mechanical_eject_in_progress,
-                                         self.trigger_event))
+            self.eject_queue.appendleft(self.eject_in_progress_target)
 
         # Remember variables for event
         target = self.eject_in_progress_target

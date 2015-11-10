@@ -41,6 +41,9 @@ switches:
     s_playfield:
         number:
         tags: playfield_active
+    s_launch:
+        number:
+        tags: launch
 
 
 

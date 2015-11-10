@@ -33,6 +33,7 @@ class Game(Mode):
         self.machine.game = None
         self.tilted = False
         self.player = None
+        self.player_controlled_eject_keys = set()
 
     @property
     def balls_in_play(self):
@@ -213,7 +214,16 @@ class Game(Mode):
             self.machine.events.post(
                 'player_{}_ball_started'.format(self.player.number))
 
-        self.machine.playfield.add_ball(player_controlled=True)
+        #self.machine.playfield.add_ball(player_controlled=True)
+
+        self.stage_ball_for_launch()
+
+    def stage_ball_for_launch(self):
+        for device in self.machine.ball_devices.items_tagged('ball_add_live'):
+            device.request_ball()
+            break
+
+        self.setup_player_controlled_eject(device)
 
     def ball_drained(self, balls=0, **kwargs):
         self.log.debug("Entering Game.ball_drained()")
@@ -512,6 +522,30 @@ class Game(Mode):
             self.player = self.player_list[0]
 
         self.log.debug("Player rotate: Now up is Player %s", self.player.number)
+
+    def setup_player_controlled_eject(self, device, target=None):
+        self.player_controlled_eject_keys.add(self.machine.events.add_handler(
+            event='sw_{}'.format(self.machine.config['game']
+                                 ['player_controlled_eject_tag']),
+            handler=self.player_controlled_eject_request,
+            device=device,
+            target=target)
+        )
+
+        self.player_controlled_eject_keys.add(self.machine.events.add_handler(
+            'balldevice_{}_eject_success'.format(device.name),
+            self.remove_player_controlled_eject)
+        )
+
+    def player_controlled_eject_request(self, device, target):
+        if device.available_balls:
+            device.eject(target=target)
+
+    def remove_player_controlled_eject(self):
+        self.machine.events.remove_handler_by_keys(
+            self.player_controlled_eject_keys)
+
+        self.player_controlled_eject_keys = set()
 
 
 # todo player events should come next, including tracking inc/dec, other values
