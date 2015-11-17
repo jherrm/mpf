@@ -1,0 +1,40 @@
+events:
+  ball_search_begin_phase1: 0
+  game_ended: 8
+  game_started: 39
+player:
+  score:
+    average: 3221
+    top:
+    - 11580
+    - 10500
+    - 10150
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    total: 10
+switches:
+  launch: 1
+  left_flipper: 73
+  left_inlane: 14
+  left_outlane: 25
+  left_sling: 20
+  plumb_bob: 9
+  plunger_lane: 0
+  right_flipper: 66
+  right_inlane: 10
+  right_outlane: 9
+  right_sling: 4
+  s_left_slingshot: 43
+  s_right_slingshot: 28
+  slam_tilt: 0
+  start: 49
+  trough_1: 104
+  trough_2: 76
+  trough_3: 0
+  trough_4: 0
+  trough_5: 0

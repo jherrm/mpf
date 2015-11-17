@@ -1,0 +1,178 @@
+# config_version=3
+
+hardware:
+  platform: p_roc
+  driverboards: pdb
+
+virtual_platform_start_active_switches:
+    trough_1
+    trough_2
+#     trough_3
+#     trough_4
+
+switches:
+
+# Cabinet
+  left_flipper:
+    # number: 7/15 #eos
+    number: 3
+    tags: left_flipper
+  right_flipper:
+    # number: 6/14 #eos
+    number: 2
+    tags: right_flipper
+  start:
+    number: 1
+    tags: start
+  # launch:
+  #   number: XX3
+  #   tags: launch
+
+# # # Tilt
+# #   plumb_bob:
+# #     number: XX3
+# #     tags: tilt_warning
+# #   slam_tilt:
+# #     number: XX4
+# #     tags: slam_tilt
+
+
+# Playfield Bottom
+#   left_outlane:
+#     number: XX5
+#     tags: playfield_active
+#   left_inlane:
+#     number: XX6
+#     tags: playfield_active
+#   right_inlane:
+#     number: XX7
+#     tags: playfield_active
+#   right_outlane:
+#     number: XX8
+#     tags: playfield_active
+  s_left_slingshot:
+    number: 5
+    tags: playfield_active
+  s_right_slingshot:
+    number: 4
+    tags: playfield_active
+
+# # Plunger lane
+#   plunger_lane:
+#     number: XX11
+#     tags:
+
+# Trough
+  trough_1:
+    number: 8
+    # type: NC
+  trough_2:
+    number: 9
+    # type: NC
+#   trough_3:
+#     number: XX14
+#     type: NC
+#   trough_4:
+#     number: XX15
+#     type: NC
+
+coils:
+# # For PD-16-based coils, the coil numbering format is Ax-By-z. 
+# # The “A” and “B” capital letters are required.
+# # (A means Address, B means Bank). 
+# # The lowercase x, y, and z letters should be replaced with numbers to 
+# # represent the following on a PD-16 driver board:
+# #     x : Board address (0-7)
+# #     y : Bank address (0 for A, 1 for B)
+# #     z : Output number (0-7)
+
+# ------ Single wound flippers ----------
+  left_flipper_main:
+    number: A0-B0-0
+    pulse_ms: 20
+    # allow_enable: true
+    # power settings go from 0-8
+    # pulse_power: 8
+    # hold_power: 8
+  right_flipper_main:
+    number: A0-B0-1
+    pulse_ms: 20
+    # allow_enable: true
+# ---------------------------------------
+
+  c_left_slingshot:
+    number: A0-B0-2
+    pulse_ms: 20
+  c_right_slingshot:
+    number: A0-B0-3
+    pulse_ms: 20
+
+  c_trough_eject:
+    number: A0-B0-4
+    pulse_ms: 20
+
+ball_devices:
+  trough:
+    tags: trough, home, drain, ball_add_live
+    ball_switches: trough_1, trough_2 #, trough_3, trough_4
+    eject_coil: c_trough_eject
+    confirm_eject_type: count # or target
+    # eject_targets: plunger_lane
+    exit_count_delay: 2s
+    entrance_count_delay: 300ms
+    debug: yes
+
+  # plunger_lane:
+    # tags: ball_add_live
+    # ball_switches: plunger_lane
+    # mechanical_eject: true  # uncomment if you have a mechanical plunger
+
+autofire_coils:
+  left_slingshot:
+    coil: c_left_slingshot
+    switch: s_left_slingshot
+  right_slingshot:
+    coil: c_right_slingshot
+    switch: s_right_slingshot
+
+flippers:
+
+  left:
+    main_coil: left_flipper_main
+    activation_switch: left_flipper
+    # enable_events: machine_reset_phase_3
+
+  right:
+    main_coil: right_flipper_main
+    activation_switch: right_flipper
+    # enable_events: machine_reset_phase_3
+
+# sound_system:
+#     tracks:
+#         voice:
+#             volume: 1
+#             priority: 2
+#             simultaneous_sounds: 1
+#             preload: yes
+#         sfx:
+#             volume: 1
+#             priority: 1
+#             preload: yes
+#             simultaneous_sounds: 7
+#     stream:
+#         name: music
+#         priority: 0
+
+#     buffer: 512
+#     frequency: 44100
+#     channels: 1
+#     initial_volume: 1
+#     volume_steps: 20
+
+dmd:
+    physical: no
+    width: 128
+    height: 32
+    shades: 16
+    fps: auto
+#    type: color
